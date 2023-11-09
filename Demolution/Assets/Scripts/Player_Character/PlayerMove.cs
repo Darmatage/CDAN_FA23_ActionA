@@ -14,7 +14,7 @@ public class PlayerMove : MonoBehaviour
     //public AudioSource WalkSFX
     private Vector3 hMove;
 
-
+    public bool canMove = true;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +25,7 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      if (canMove){
         hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
         if (isAlive == true){
           transform.position = transform.position + hMove * runSpeed * Time.deltaTime;
@@ -34,6 +35,7 @@ public class PlayerMove : MonoBehaviour
               playerTurn();
           }
         }
+      }
     }
 
     void FixedUpdate(){
