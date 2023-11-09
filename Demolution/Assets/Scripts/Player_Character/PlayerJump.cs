@@ -13,6 +13,9 @@ public class PlayerJump : MonoBehaviour
   public bool canJump = false;
   public int jumpTimes = 0;
   public bool isAlive = true;
+
+  public bool heyIsGrounded = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,11 +25,15 @@ public class PlayerJump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((IsGrounded()) || (jumpTimes <= 1)){
+      heyIsGrounded = IsGrounded();
+
+        if((IsGrounded()) && (jumpTimes == 0)){
             canJump = true;
+            //gameObject.GetComponent<PlayerMove>().canMove = true;
         }
-        else if (jumpTimes > 1){
+        else {
           canJump = false;
+          //gameObject.GetComponent<PlayerMove>().canMove = false;
         }
 
         if ((Input.GetButtonDown("Jump")) && (canJump) && (isAlive == true)) {
@@ -40,12 +47,19 @@ public class PlayerJump : MonoBehaviour
     }
 
     public bool IsGrounded() {
-      Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 2f, groundLayer);
-      Collider2D enemyCheck = Physics2D.OverlapCircle(feet.position, 2f, enemyLayer);
+      Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 0.2f, groundLayer);
+      Collider2D enemyCheck = Physics2D.OverlapCircle(feet.position, 0.2f, enemyLayer);
       if ((groundCheck != null) || (enemyCheck != null)) {
         jumpTimes = 0;
         return true;
       }
       return false;
     }
+
+
+    // DISPLAY the range of enemy's attack when selected in the Editor
+    void OnDrawGizmos(){
+        Gizmos.DrawWireSphere(feet.position, 0.2f);
+      }
+
 }
