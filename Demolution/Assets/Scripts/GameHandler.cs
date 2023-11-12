@@ -15,6 +15,7 @@ public class GameHandler : MonoBehaviour {
       public GameObject tokensText;
 
       public bool isDefending = false;
+	  public bool inWater = true;
 
       public static bool stairCaseUnlocked = false;
       //this is a flag check. Add to other scripts: GameHandler.stairCaseUnlocked = true;
@@ -37,7 +38,7 @@ public class GameHandler : MonoBehaviour {
       }
 
       public void playerGetHit(int damage){
-           if (isDefending == false){
+           if ((isDefending == false)||(inWater == false)){
                   playerHealth -= damage;
                   if (playerHealth >=0){
                         updateStatsDisplay();
@@ -64,7 +65,7 @@ public class GameHandler : MonoBehaviour {
             healthTextTemp.text = "HEALTH: " + playerHealth;
 
             Text tokensTextTemp = tokensText.GetComponent<Text>();
-            tokensTextTemp.text = "GOLD: " + gotTokens;
+            tokensTextTemp.text = "SCORE: " + gotTokens;
       }
 
       public void playerDies(){
