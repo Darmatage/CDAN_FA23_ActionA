@@ -10,6 +10,7 @@ public class EnemyMoveShoot : MonoBehaviour {
        public float retreatDistance = 3f; // when enemy moves away from approaching player
        private float timeBtwShots;
        public float startTimeBtwShots = 2;
+	   public Transform firePoint;
        public GameObject projectile;
 
        private Rigidbody2D rb;
@@ -71,16 +72,16 @@ public class EnemyMoveShoot : MonoBehaviour {
 
                      //Flip enemy to face player direction. Wrong direction? Swap the * -1.
                      if (player.position.x > gameObject.transform.position.x){
-                            gameObject.transform.localScale = new Vector2(scaleX, gameObject.transform.localScale.y);
+                            gameObject.transform.localScale = new Vector2(scaleX * -1, gameObject.transform.localScale.y);
                     } else {
-                             gameObject.transform.localScale = new Vector2(scaleX * -1, gameObject.transform.localScale.y);
+                             gameObject.transform.localScale = new Vector2(scaleX, gameObject.transform.localScale.y);
                      }
 
                      //Timer for shooting projectiles
                      if (timeBtwShots <= 0) {
                             isAttacking = true;
                             //anim.SetTrigger("Attack");
-                            Instantiate (projectile, transform.position, Quaternion.identity);
+                            Instantiate (projectile, firePoint.position, Quaternion.identity);
                             timeBtwShots = startTimeBtwShots;
                      } else {
                             timeBtwShots -= Time.deltaTime;

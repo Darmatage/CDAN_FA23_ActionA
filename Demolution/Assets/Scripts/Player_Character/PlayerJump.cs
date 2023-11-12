@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerJump : MonoBehaviour
-{
+public class PlayerJump : MonoBehaviour{
 
-  public Rigidbody2D rb;
-  public float jumpForce = 20f;
-  public Transform feet;
-  public LayerMask groundLayer;
-  public LayerMask enemyLayer;
-  public bool canJump = false;
-  public int jumpTimes = 0;
-  public bool isAlive = true;
+	private Animator anim;
+	private Rigidbody2D rb;
+	public float jumpForce = 5f;
+	public Transform feet;
+	public LayerMask groundLayer;
+	public LayerMask enemyLayer;
+	public bool canJump = false;
+	public int jumpTimes = 0;
+	public bool isAlive = true;
+	//public AudioSource JumpSFX;
 
-  public bool heyIsGrounded = true;
+	public bool heyIsGrounded = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+	void Start(){
+		anim = gameObject.GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -42,8 +42,10 @@ public class PlayerJump : MonoBehaviour
     }
 
     public void Jump() {
-      jumpTimes += 1;
-      rb.velocity = Vector2.up * jumpForce;
+		jumpTimes += 1;
+		rb.velocity = Vector2.up * jumpForce;
+		anim.SetTrigger("jump");
+		// JumpSFX.Play();
     }
 
     public bool IsGrounded() {
@@ -56,10 +58,13 @@ public class PlayerJump : MonoBehaviour
       return false;
     }
 
+	public void jumpForceGrow(){
+		jumpForce = jumpForce * 1.02f;
+	}
 
     // DISPLAY the range of enemy's attack when selected in the Editor
     void OnDrawGizmos(){
         Gizmos.DrawWireSphere(feet.position, 0.2f);
-      }
+	}
 
 }

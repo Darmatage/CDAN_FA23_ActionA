@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Nick_scene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/MainMenu.unity
+    guid: bec74848eec5a1441b402d8a9fb9b58c
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 1b577d4d6b9e58f49b6bf95f59b7b41f
+  - enabled: 1
+    path: Assets/Scenes/EndLose.unity
+    guid: 8978db8fcbdfaa3499be6159574b80e5
+  - enabled: 1
+    path: Assets/Scenes/EndWin.unity
+    guid: fb6c48f0835988548b54935c18225ce6
   m_configObjects: {}

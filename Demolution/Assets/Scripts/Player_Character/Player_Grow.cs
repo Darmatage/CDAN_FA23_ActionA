@@ -65,11 +65,11 @@ public class Player_Grow : MonoBehaviour{
 		ghostVFX.SetActive(true);
 		//ghostVFX.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
 		playerSizeNew = playerSize * playerSizeMultiplier;
-		float ghostSizeNew = 1.2f * playerSizeMultiplier;
+		float ghostSizeNew = 1.1f * playerSizeMultiplier;
 		float theTime = 0.5f;
 		
-		StartCoroutine(PlayerGrowVFX(1f, ghostSizeNew, theTime));
 		//growSFX.Play();
+		StartCoroutine(PlayerGrowVFX(1f, ghostSizeNew, theTime));
 		yield return new WaitForSeconds(0.5f);
 		StartCoroutine(PlayerGrowObj(playerSize, playerSizeNew, theTime));
 		yield return new WaitForSeconds(0.5f);
@@ -81,7 +81,6 @@ public class Player_Grow : MonoBehaviour{
 		float ghostAlpha = 0;
 		
 		ghostVFX.SetActive(true);
-		//ghostVFX.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
 		
 		float elapsed1 = 0;
 		while (elapsed1 <= time){
@@ -90,20 +89,16 @@ public class Player_Grow : MonoBehaviour{
 
 			Vector3 baseGhostVect = new Vector3(oldSize, oldSize, oldSize);
 			Vector3 newGhostVect = new Vector3(newSize, newSize, newSize);
-			
+
+			//fade-in the grow effect
 			ghostVFX.transform.localScale = Vector3.Lerp(baseGhostVect, newGhostVect, t);
 			
-			SpriteRenderer ghostRend = ghostVFX.GetComponent<SpriteRenderer>();
+			SpriteRenderer ghostRend = ghostVFX.GetComponentInChildren<SpriteRenderer>();
 			ghostRend.color = new Color(2.5f, 2.5f, 2.5f, (Mathf.Lerp(0f, 0.3f, t)));
-			
-			//reset
-			//playerSize = playerSizeNew;
-			//ghostVFX.transform.localScale = new Vector3(1, 1, 1);
 			
 			yield return null;
 		}
 	}
-
 
 	IEnumerator PlayerGrowObj(float oldSize, float newSize, float time){
 		//ghostVFX.SetActive(true);
@@ -114,33 +109,43 @@ public class Player_Grow : MonoBehaviour{
 			elapsed += Time.deltaTime;
 			float t = Mathf.Clamp01(elapsed / time);
 
-			//Vector3 baseGhostVect = new Vector3(1, 1, 1);
 			Vector3 oldSizeVect = new Vector3(oldSize, oldSize, oldSize);
 			Vector3 newSizeVect = new Vector3(newSize, newSize, newSize);
-			
+			bool facingRight = gameObject.GetComponent<PlayerMove>().FaceRight;
+			if (!facingRight){
+				oldSizeVect = new Vector3(oldSize * -1, oldSize, oldSize);
+				newSizeVect = new Vector3(newSize * -1, newSize, newSize);
+			} 
+
+			//grow the player
 			gameObject.transform.localScale = Vector3.Lerp(oldSizeVect, newSizeVect, t);
 			
-			SpriteRenderer ghostRend = ghostVFX.GetComponent<SpriteRenderer>();
+			//fade-out the grow effect
+			SpriteRenderer ghostRend = ghostVFX.GetComponentInChildren<SpriteRenderer>();
 			ghostRend.color = new Color(2.5f, 2.5f, 2.5f, (Mathf.Lerp(0.3f, 0f, t)));
 			
 			//reset
 			playerSize = playerSizeNew;
-			//ghostVFX.transform.localScale = new Vector3(1, 1, 1);
-			
-			//ghostVFX.SetActive(false);
 			yield return null;
 		}
+		//ghostVFX.transform.localScale = new Vector3(1, 1, 1);
+		ghostVFX.SetActive(false);
+		
+		//increase the jumpForce
+		gameObject.GetComponent<PlayerJump>().jumpForceGrow(); 
+		gameObject.GetComponent<PlayerMove>().walkSpeedGrow();
 	}
 
 	void PlayerGrowCamera(){
 		//grow the camera size every 5 player-size increases:
 		camTimerSmall++;
 		if (camTimerSmall >= 3){
-			myCamGrow.playerGrowCameraWide(camGrowAmt, playerSize);
+			myCamGrow.playerGrowCameraWide();
 			camTimerSmall = 0;
 			camTimerBig ++;
 			if (camTimerBig >= 2){
-				camGrowAmt = camGrowAmt * 2f;
+				//camGrowAmt = camGrowAmt * playerSizeMultiplier;
+				//camGrowAmt = camGrowAmt * 1.2f;
 				camTimerBig = 0;
 			}
 		}
@@ -148,70 +153,6 @@ public class Player_Grow : MonoBehaviour{
 		Debug.Log("Player grew to level " + playerLevel + "and is now size " + playerSize);
 	}
 
-	
-/* replace this:
-	IEnumerator PlayerGrow(){
-		ghostVFX.SetActive(true);
-		ghostVFX.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
-		float playerSizeNew = playerSize * playerSizeMultiplier;
-		float ghostSizeNew = 1.2f * playerSizeMultiplier;
-		float ghostSize = playerSize;
-		float newSize = playerSize;
-		float ghostAlpha = 0;
-		
-		//growSFX.Play();
-		
-		//size the ghostVFX:
-		float elapsed = 0;
-		float theTime = 2f;
-		while (elapsed <= theTime){
-			elapsed += Time.deltaTime;
-			float t = Mathf.Clamp01(elapsed / theTime);
-
-			ghostAlpha = Mathf.Lerp(0f, 0.3f, t);
-			//Debug.Log("Lerp Tracking " + ghostAlpha);
-			SpriteRenderer ghostRend = ghostVFX.GetComponent<SpriteRenderer>();
-			ghostRend.color = new Color(1, 1, 1, ghostAlpha);
-			
-			ghostSize = Mathf.Lerp(1, ghostSizeNew, t);
-			Transform ghostTrans = ghostVFX.transform;
-			ghostTrans.localScale = new Vector3(ghostSize,ghostSize,ghostSize);
-		}
-		
-		yield return new WaitForSeconds(0.5f);
-		
-		//size the character:
-		float elapsed2 = 0;
-		float theTime2 = 2f;
-		while (elapsed2 <= theTime2){
-			elapsed2 += Time.deltaTime;
-			float t = Mathf.Clamp01(elapsed2 / theTime2);
-			
-			newSize = Mathf.Lerp(playerSize, playerSizeNew, t);
-			Transform objTrans = gameObject.transform;
-			objTrans.localScale = new Vector3(newSize,newSize,newSize);
-		}
-		
-		//reset:
-		playerSize = newSize;
-		ghostVFX.SetActive(false);
-		//growSFX.Stop();		
-
-		//grow the camera size every 5 player-size increases:
-		camTimerSmall++;
-		if (camTimerSmall >= 3){
-			myCamGrow.playerGrowCameraWide(camGrowAmt, playerSize);
-			camTimerSmall = 0;
-			camTimerBig ++;
-			if (camTimerBig >= 2){
-				camGrowAmt = camGrowAmt * 2f;
-				camTimerBig = 0;
-			}
-		}
-
-		Debug.Log("Player grew to level " + playerLevel + "and is now size " + playerSize);		
-	}
-	*/
 }
 
 //Apply this script to a player that has a duplicate art object, for the ghost effect 
