@@ -221,6 +221,7 @@ MonoBehaviour:
   startTimeBtwShots: 2
   firePoint: {fileID: 536073768}
   turretHub: {fileID: 1393458587}
+  turretDefault: {fileID: 811337516}
   projectile: {fileID: 6210488375690872488, guid: ecb08859f48f3934db0dabd7d19eb1ea, type: 3}
   EnemyLives: 30
   attackRange: 7
@@ -311,6 +312,7 @@ Transform:
   m_Children:
   - {fileID: 795413998}
   - {fileID: 1393458587}
+  - {fileID: 811337516}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -429,6 +431,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &811337515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 811337516}
+  m_Layer: 3
+  m_Name: Turret_Default
+  m_TagString: Untagged
+  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &811337516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811337515}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.44, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 397164391}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1393458586
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,7 +571,7 @@ GameObject:
   - component: {fileID: 2036000179}
   - component: {fileID: 2036000178}
   - component: {fileID: 2036000177}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground_Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

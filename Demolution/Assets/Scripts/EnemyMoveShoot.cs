@@ -12,6 +12,7 @@ public class EnemyMoveShoot : MonoBehaviour {
        public float startTimeBtwShots = 2;
 	   public Transform firePoint;
 	   public Transform turretHub;
+	   public Transform turretDefault;
        public GameObject projectile;
 
        private Rigidbody2D rb;
@@ -88,22 +89,39 @@ public class EnemyMoveShoot : MonoBehaviour {
                             timeBtwShots -= Time.deltaTime;
                             isAttacking = false;
                      }
+					 
+					 //rotate turret towards player
+					 turretHub.right = (player.position - turretHub.position) * -1;
+					 //turretHub.LookAt(player.position);
+					 
               }
-       }
+			  
+		//rotate turret to forward (when player is not in range, or dead)
+		else {
+			turretHub.right = (turretDefault.position - turretHub.position) * -1;
+			//turretHub.LookAt(turretDefault.position);
+		}
+	}
 
-	//rotate turret based on player position:
+	//rotate turret based on player position (unsuccessful version:
+	/*
 	void FixedUpdate(){
 		float DistToPlayer = Vector3.Distance(transform.position, player.position);
 		if ((player != null) && (DistToPlayer <= attackRange)) { 
 			Vector2 lookDir = player.position - turretHub.position;
 			float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg +180f;
 			turretHub.Rotate(0,0, angle);
-			//rb.rotation = angle;
 		} else {
 			turretHub.Rotate(0,0, 0);
 		}
 	}
-
+	
+	
+	Vector2 direction = (target - (Vector2)transform.position).normalized;
+     var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; 
+     var offset = 90f;
+     transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
+	*/
 
        void OnCollisionEnter2D(Collision2D collision){
               //if (collision.gameObject.tag == "bullet") {
