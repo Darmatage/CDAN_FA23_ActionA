@@ -8,6 +8,7 @@ TagManager:
   - PauseMenuSlider
   - PlayerBottom
   - WaterLine
+  - PlayerCenter
   layers:
   - Default
   - TransparentFX

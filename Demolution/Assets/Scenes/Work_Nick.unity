@@ -220,9 +220,10 @@ MonoBehaviour:
   retreatDistance: 3
   startTimeBtwShots: 2
   firePoint: {fileID: 536073768}
+  turretHub: {fileID: 1393458587}
   projectile: {fileID: 6210488375690872488, guid: ecb08859f48f3934db0dabd7d19eb1ea, type: 3}
   EnemyLives: 30
-  attackRange: 4
+  attackRange: 7
   isAttacking: 0
 --- !u!50 &397164389
 Rigidbody2D:
@@ -355,7 +356,7 @@ GameObject:
   - component: {fileID: 795413998}
   - component: {fileID: 795413999}
   m_Layer: 3
-  m_Name: Triangle
+  m_Name: tank_art
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -438,7 +439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1393458587}
   m_Layer: 3
-  m_Name: barrel_hub
+  m_Name: Turret_Hub
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -667,7 +668,7 @@ GameObject:
   - component: {fileID: 2123526935}
   - component: {fileID: 2123526936}
   m_Layer: 3
-  m_Name: barrel
+  m_Name: tankTurret_art
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

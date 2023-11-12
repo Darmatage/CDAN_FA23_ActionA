@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Player_Grow : MonoBehaviour{
 	
-	//move to GameHandler
-	public static int player1points = 0;
-	public static int pointsToLevel1 = 0;
-	public static int pointsToLevel2 = 10;
-	public static int playerLevel = 1;
-	public static float playerSize = 1;
+//moved to GameHandler_PlayerManager:
+	//public static int playerScore = 0;
+	//public static int pointsToLevel1 = 0;
+	//public static int pointsToLevel2 = 10;
+	//public static int playerLevel = 1;
+	//public static float playerSize = 1;
 	
 	//local variables
 	public int pointsToNextLevel;
@@ -25,53 +25,54 @@ public class Player_Grow : MonoBehaviour{
 	private int camTimerBig = 0;
 
 	void Start(){
-		gameObject.transform.localScale = new Vector3(playerSize, playerSize, playerSize);
+		gameObject.transform.localScale = new Vector3(
+		GameHandler_PlayerManager.playerSize, 
+		GameHandler_PlayerManager.playerSize, 
+		GameHandler_PlayerManager.playerSize);
 		ghostVFX.transform.localScale = new Vector3(1, 1, 1);
 		ghostVFX.SetActive(false);
 	}
 
     void Update(){
-		//test button press listener (real result should come from melee impact/ points accumulation)
+		//test buttons (real result should come from melee impact/ points accumulation)
 		if (Input.GetKeyDown("p")){
-			player1points ++;
-			//Debug.Log("Player Score:" + player1points);
-			
-			//size based on points accumulation:
-			//UpdatePlayerSize();
-			
 			//size based on direct input (for testing):
 			StartCoroutine(PlayerGrowers());
 		}
+		if (Input.GetKeyDown("o")){
+			//Test size based on points accumulation:
+			GameHandler.playerScore ++;
+			GameObject.FindWithTag("GameHandler").GetComponent<GameHandler_PlayerManager>().playerAddScore(1);
+		}
+		
     }
 	
-/* use this
 	//call this function whenever player gets a point:
 	public void UpdatePlayerSize(){
-		pointsToNextLevel = (pointsToLevel1 + pointsToLevel2);
-		if (player1points >= pointsToNextLevel){
+		pointsToNextLevel = (GameHandler_PlayerManager.pointsToLevel1 + GameHandler_PlayerManager.pointsToLevel2);
+		if (GameHandler.playerScore >= pointsToNextLevel){
 			//update player size and level:
-			playerLevel ++;
-			//StartCoroutine(PlayerGrow());
+			GameHandler_PlayerManager.playerLevel ++;
+			StartCoroutine(PlayerGrowers());
 			
 			//update two points records 
-			pointsToLevel1 = pointsToLevel2;
-			pointsToLevel2 = pointsToNextLevel;
+			GameHandler_PlayerManager.pointsToLevel1 = GameHandler_PlayerManager.pointsToLevel2;
+			GameHandler_PlayerManager.pointsToLevel2 = pointsToNextLevel;
 		}
 	}
-*/
 
 	//first of four grow functions, to manage the other three
 	IEnumerator PlayerGrowers(){
 		ghostVFX.SetActive(true);
 		//ghostVFX.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
-		playerSizeNew = playerSize * playerSizeMultiplier;
+		playerSizeNew = GameHandler_PlayerManager.playerSize * playerSizeMultiplier;
 		float ghostSizeNew = 1.1f * playerSizeMultiplier;
 		float theTime = 0.5f;
 		
 		//growSFX.Play();
 		StartCoroutine(PlayerGrowVFX(1f, ghostSizeNew, theTime));
 		yield return new WaitForSeconds(0.5f);
-		StartCoroutine(PlayerGrowObj(playerSize, playerSizeNew, theTime));
+		StartCoroutine(PlayerGrowObj(GameHandler_PlayerManager.playerSize, playerSizeNew, theTime));
 		yield return new WaitForSeconds(0.5f);
 		PlayerGrowCamera();
 		//growSFX.Stop();
@@ -125,7 +126,7 @@ public class Player_Grow : MonoBehaviour{
 			ghostRend.color = new Color(2.5f, 2.5f, 2.5f, (Mathf.Lerp(0.3f, 0f, t)));
 			
 			//reset
-			playerSize = playerSizeNew;
+			GameHandler_PlayerManager.playerSize = playerSizeNew;
 			yield return null;
 		}
 		//ghostVFX.transform.localScale = new Vector3(1, 1, 1);
@@ -150,7 +151,7 @@ public class Player_Grow : MonoBehaviour{
 			}
 		}
 
-		Debug.Log("Player grew to level " + playerLevel + "and is now size " + playerSize);
+		Debug.Log("Player grew to level " + GameHandler_PlayerManager.playerLevel + "and is now size " + GameHandler_PlayerManager.playerSize);
 	}
 
 }

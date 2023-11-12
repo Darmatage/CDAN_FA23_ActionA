@@ -11,14 +11,14 @@ public class GameHandler : MonoBehaviour {
       public int StartPlayerHealth = 100;
       public GameObject healthText;
 
-      public static int gotTokens = 0;
+      public static int playerScore = 0;
       public GameObject tokensText;
 
       public bool isDefending = false;
 	  public bool inWater = true;
 
       public static bool stairCaseUnlocked = false;
-      //this is a flag check. Add to other scripts: GameHandler.stairCaseUnlocked = true;
+      //this is an example of a flag check. Add to other scripts: GameHandler.stairCaseUnlocked = true;
 
       private string sceneName;
       public static string lastLevelDied;  //allows replaying the Level where you died
@@ -32,10 +32,13 @@ public class GameHandler : MonoBehaviour {
             updateStatsDisplay();
       }
 
+	/*
+	//moved to GameHandler_PlayerManager:
       public void playerGetTokens(int newTokens){
-            gotTokens += newTokens;
+            playerScore += newTokens;
             updateStatsDisplay();
       }
+	  */
 
       public void playerGetHit(int damage){
            if ((isDefending == false)||(inWater == false)){
@@ -65,7 +68,7 @@ public class GameHandler : MonoBehaviour {
             healthTextTemp.text = "HEALTH: " + playerHealth;
 
             Text tokensTextTemp = tokensText.GetComponent<Text>();
-            tokensTextTemp.text = "SCORE: " + gotTokens;
+            tokensTextTemp.text = "SCORE: " + playerScore;
       }
 
       public void playerDies(){

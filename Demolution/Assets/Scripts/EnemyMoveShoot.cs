@@ -11,6 +11,7 @@ public class EnemyMoveShoot : MonoBehaviour {
        private float timeBtwShots;
        public float startTimeBtwShots = 2;
 	   public Transform firePoint;
+	   public Transform turretHub;
        public GameObject projectile;
 
        private Rigidbody2D rb;
@@ -30,7 +31,7 @@ public class EnemyMoveShoot : MonoBehaviour {
               scaleX = gameObject.transform.localScale.x;
 
               rb = GetComponent<Rigidbody2D> ();
-              player = GameObject.FindGameObjectWithTag("Player").transform;
+              player = GameObject.FindWithTag("PlayerCenter").transform;
               PlayerVect = player.transform.position;
 
               timeBtwShots = startTimeBtwShots;
@@ -89,6 +90,20 @@ public class EnemyMoveShoot : MonoBehaviour {
                      }
               }
        }
+
+	//rotate turret based on player position:
+	void FixedUpdate(){
+		float DistToPlayer = Vector3.Distance(transform.position, player.position);
+		if ((player != null) && (DistToPlayer <= attackRange)) { 
+			Vector2 lookDir = player.position - turretHub.position;
+			float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg +180f;
+			turretHub.Rotate(0,0, angle);
+			//rb.rotation = angle;
+		} else {
+			turretHub.Rotate(0,0, 0);
+		}
+	}
+
 
        void OnCollisionEnter2D(Collision2D collision){
               //if (collision.gameObject.tag == "bullet") {
