@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class EnemyMeleeDamage : MonoBehaviour {
        private Renderer rend;
-       public Animator anim;
+       private Animator anim;
        public GameObject healthLoot;
        public int maxHealth = 100;
        public int currentHealth;
 
        void Start(){
               rend = GetComponentInChildren<Renderer> ();
-              anim = GetComponentInChildren<Animator> ();
+              //anim = GetComponentInChildren<Animator> ();
               currentHealth = maxHealth;
        }
 

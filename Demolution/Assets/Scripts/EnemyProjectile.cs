@@ -14,7 +14,7 @@ public class EnemyProjectile : MonoBehaviour {
 
        void Start() {
              //NOTE: transform gets location, but we need Vector2 for direction, so we can use MoveTowards.
-             playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+             playerTrans = GameObject.FindGameObjectWithTag("PlayerCenter").transform;
              target = new Vector2(playerTrans.position.x, playerTrans.position.y);
 
              if (gameHandlerObj == null){

@@ -16,7 +16,7 @@ public class EnemyMoveShoot : MonoBehaviour {
        public GameObject projectile;
 
        private Rigidbody2D rb;
-       private Transform player;
+       public Transform player;
        private Vector2 PlayerVect;
 
        public int EnemyLives = 30;
@@ -90,53 +90,44 @@ public class EnemyMoveShoot : MonoBehaviour {
                             isAttacking = false;
                      }
 					 
-					 //rotate turret towards player
-					 turretHub.right = (player.position - turretHub.position) * -1;
-					 //turretHub.LookAt(player.position);
-					 
-              }
-			  
-		//rotate turret to forward (when player is not in range, or dead)
-		else {
-			turretHub.right = (turretDefault.position - turretHub.position) * -1;
-			//turretHub.LookAt(turretDefault.position);
+			//rotate turret towards player (this system works, but the FixedUpdate system is more robust):
+			//turretHub.right = (player.position - turretHub.position) * -1;	 
+		} else {
+			//rotate turret to forward (when player is not in range, or dead):
+			//turretHub.right = (turretDefault.position - turretHub.position) * -1;
+			
 		}
 	}
 
-	//rotate turret based on player position (unsuccessful version:
-	/*
+	//rotate turret based on player position:
 	void FixedUpdate(){
 		float DistToPlayer = Vector3.Distance(transform.position, player.position);
-		if ((player != null) && (DistToPlayer <= attackRange)) { 
-			Vector2 lookDir = player.position - turretHub.position;
-			float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg +180f;
-			turretHub.Rotate(0,0, angle);
+		if ((player != null) && (DistToPlayer <= attackRange)) {
+			//rotate turret towards player:
+			Vector2 lookDir = ((Vector2)player.position - (Vector2)turretHub.position).normalized;
+			float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+			float offset = 180f;
+			turretHub.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
 		} else {
-			turretHub.Rotate(0,0, 0);
+			//rotate turret to forward (when player is not in range, or dead):
+			turretHub.rotation = Quaternion.Euler(Vector3.forward);
 		}
 	}
-	
-	
-	Vector2 direction = (target - (Vector2)transform.position).normalized;
-     var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; 
-     var offset = 90f;
-     transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
-	*/
 
-       void OnCollisionEnter2D(Collision2D collision){
-              //if (collision.gameObject.tag == "bullet") {
-              // EnemyLives -= 1;
-              // StopCoroutine("HitEnemy");
-              // StartCoroutine("HitEnemy");
-              //}
-              if (collision.gameObject.tag == "Player") {
-                     EnemyLives -= 2;
-                     StopCoroutine("HitEnemy");
-                     StartCoroutine("HitEnemy");
-              }
-       }
+	void OnCollisionEnter2D(Collision2D collision){
+		//if (collision.gameObject.tag == "bullet") {
+		// EnemyLives -= 1;
+		// StopCoroutine("HitEnemy");
+		// StartCoroutine("HitEnemy");
+		//}
+		if (collision.gameObject.tag == "Player") {
+			EnemyLives -= 2;
+			StopCoroutine("HitEnemy");
+			StartCoroutine("HitEnemy");
+		}
+	}
 
-       IEnumerator HitEnemy(){
+	IEnumerator HitEnemy(){
               // color values are R, G, B, and alpha, each divided by 100
               rend.material.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
               if (EnemyLives < 1){
