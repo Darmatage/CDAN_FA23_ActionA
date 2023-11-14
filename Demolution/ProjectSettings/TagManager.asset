@@ -9,6 +9,7 @@ TagManager:
   - PlayerBottom
   - WaterLine
   - PlayerCenter
+  - PlayerTop
   layers:
   - Default
   - TransparentFX

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
-public class EnemyMoveShoot : MonoBehaviour {
+public class EnemyMoveShoot_Copter : MonoBehaviour {
 
       //public Animator anim;
        public float speed = 2f;
@@ -27,9 +27,12 @@ public class EnemyMoveShoot : MonoBehaviour {
        public bool isAttacking = false;
        private float scaleX;
 
+		
 
-	//if tank is true, slower speed, bigger art/collider, bigger / more powerful projectile
-	public bool isTank = true;
+	//if helicopter is true: allow to fly, but stay in height range unless dead, then trail smoke as it falls
+	public bool isCopter = true;
+	private float flyY_Top;
+	private float flyY_Bottom;
 
        void Start () {
               Physics2D.queriesStartInColliders = false;
@@ -48,15 +51,38 @@ public class EnemyMoveShoot : MonoBehaviour {
               // gameHander = GameObject.FindWithTag ("GameHandler").GetComponent<GameHandler> ();
               //}
 			  
+			  if (isCopter){
+				  GetComponent<Rigidbody2D>().gravityScale = 0;
+				  
+				  float playerYTop = GameObject.FindWithTag("PlayerTop").transform.position.y;
+				  //float playerYBottom = GameObject.FindWithTag("PlayerBottom").transform.position.y;
+				  //float playerHeight = abs(playerYTop) + abs(playerYBottom);
+				  flyY_Top = playerYTop *3;
+				  
+				  float playerYMiddle = GameObject.FindWithTag("PlayerCenter").transform.position.y;
+				  if (GameHandler_PlayerManager.playerSize > 10){
+					  flyY_Bottom = playerYMiddle;
+				  } else {
+					  flyY_Bottom = playerYTop * 2;
+				  }
+			  }
+			  
        }
 
 	void Update () {
-
+			
 		float DistToPlayer = Vector3.Distance(transform.position, player.position);
 		if ((player != null) && (DistToPlayer <= attackRange)) {
 			// approach player
+			
+			//make sure copter does not fly below limit:
+			Vector3 target = player.position;
+			if (player.position.y < flyY_Bottom){
+				target.y = flyY_Bottom;
+			}
+					 
 			if (Vector2.Distance (transform.position, player.position) > stoppingDistance) {
-				transform.position = Vector2.MoveTowards (transform.position, player.position, speed * Time.deltaTime);
+				transform.position = Vector2.MoveTowards (transform.position, target, speed * Time.deltaTime);
 				if (isAttacking == false) {
 					//anim.SetBool("Walk", true);
 				}
@@ -70,13 +96,13 @@ public class EnemyMoveShoot : MonoBehaviour {
 				//anim.SetBool("Walk", false);
 			}
 
-                     // retreat from player
-                     else if (Vector2.Distance (transform.position, player.position) < retreatDistance) {
-                            transform.position = Vector2.MoveTowards (transform.position, player.position, -speed * Time.deltaTime);
-                            if (isAttacking == false) {
-                                   //anim.SetBool("Walk", true);
-                            }
-                     }
+			// retreat from player
+			else if (Vector2.Distance (transform.position, player.position) < retreatDistance) {
+				transform.position = Vector2.MoveTowards (transform.position, player.position, -speed * Time.deltaTime);
+				if (isAttacking == false) {
+					//anim.SetBool("Walk", true);
+				}
+			}
 
                      //Flip enemy to face player direction. Wrong direction? Swap the * -1.
                      if (player.position.x > gameObject.transform.position.x){
