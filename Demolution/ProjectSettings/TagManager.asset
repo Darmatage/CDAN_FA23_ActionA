@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - GameHandler
+  - PauseMenuSlider
+  - PlayerBottom
+  - WaterLine
+  - PlayerCenter
+  - PlayerTop
   layers:
   - Default
   - TransparentFX
