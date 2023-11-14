@@ -38,6 +38,9 @@ public class PlayerAttackMelee : MonoBehaviour{
 				nextAttackTime = Time.time + 1f / attackRate;
 			}
 		}
+		
+		attackRange = GameHandler_PlayerManager.playerSize / 2;
+		
 	}
 
 	void Attack(string move){

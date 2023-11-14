@@ -57,18 +57,19 @@ public class Player_DestroyTiles : MonoBehaviour{
 	}
 
 	void destroyTileArea(){
-             foreach (Vector3 tile in tileWorldLocations){
-                     if (Vector2.Distance(tile, hitPoint.position) <= rangeDestroy){
-                            //Debug.Log("in range");
-                            Vector3Int localPlace = destructableTilemap.WorldToCell(tile);
-                            if (destructableTilemap.HasTile(localPlace)){
-                                   StartCoroutine(BoomVFX(tile));
-                                   destructableTilemap.SetTile(destructableTilemap.WorldToCell(tile), null);
-                            }
-                     //tileWorldLocations.Remove(tile);
-                     }
-              }
-       }
+		foreach (Vector3 tile in tileWorldLocations){
+			if (Vector2.Distance(tile, hitPoint.position) <= rangeDestroy){
+				//Debug.Log("in range");
+				Vector3Int localPlace = destructableTilemap.WorldToCell(tile);
+				if (destructableTilemap.HasTile(localPlace)){
+					GameObject.FindWithTag("GameHandler").GetComponent<GameHandler_PlayerManager>().playerAddScore(1);
+					StartCoroutine(BoomVFX(tile));
+					destructableTilemap.SetTile(destructableTilemap.WorldToCell(tile), null);
+				}
+				//tileWorldLocations.Remove(tile);
+			}
+		}
+	}
 
 	IEnumerator BoomVFX(Vector3 tilePos){
 		//boomSFX.Play();
