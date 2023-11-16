@@ -13,6 +13,7 @@ public class PlayerJump : MonoBehaviour{
 	public bool canJump = false;
 	public int jumpTimes = 0;
 	public bool isAlive = true;
+    public bool doubleJump = false;
 	//public AudioSource JumpSFX;
 
 	public bool heyIsGrounded = true;
@@ -31,6 +32,11 @@ public class PlayerJump : MonoBehaviour{
             canJump = true;
             //gameObject.GetComponent<PlayerMove>().canMove = true;
         }
+        else if( (jumpTimes <= 1) && (doubleJump == true))
+        {
+            canJump = true;
+        }
+
         else {
           canJump = false;
           //gameObject.GetComponent<PlayerMove>().canMove = false;
