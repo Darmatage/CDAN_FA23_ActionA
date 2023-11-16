@@ -95,6 +95,12 @@ public class GameHandler : MonoBehaviour {
             SceneManager.LoadScene("MainMenu");
              // Reset all static variables here, for new games:
             playerHealth = StartPlayerHealth;
+
+
+            GameHandler_PlayerManager.pointsToLevel1 = 0;
+            GameHandler_PlayerManager.pointsToLevel2 = 10;
+            GameHandler_PlayerManager.playerLevel = 1;
+            GameHandler_PlayerManager.playerSize = 1; 
       }
 
       // Replay the Level where you died
