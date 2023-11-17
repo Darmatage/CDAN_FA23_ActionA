@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 3708647653936277422}
   - component: {fileID: 6901922802269007980}
   - component: {fileID: 1544579798709728175}
-  - component: {fileID: 8069169946606501166}
+  - component: {fileID: 1979109001876663138}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -544,7 +544,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.6687279}
+  m_Offset: {x: 0.22689676, y: 2.407763}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -555,7 +555,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1.5}
+  m_Size: {x: 0.9537935, y: 1.9667585}
   m_EdgeRadius: 0
 --- !u!58 &1198880597984113372
 CircleCollider2D:
@@ -589,9 +589,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.544096}
+  m_Offset: {x: 0.08427596, y: 0.99140674}
   serializedVersion: 2
-  m_Radius: 0.53215075
+  m_Radius: 0.89518553
 --- !u!114 &7261282995685331471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -686,7 +686,7 @@ MonoBehaviour:
   playerSizeMultiplier: 1.05
   ghostVFX: {fileID: 2098597452521923236}
   myCamGrow: {fileID: 4972829200565046492}
---- !u!114 &8069169946606501166
+--- !u!114 &1979109001876663138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -695,13 +695,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3694094755244433844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34c5ab2b9d582484c84318edbd199669, type: 3}
+  m_Script: {fileID: 11500000, guid: 4898df7ff144dfd4eae6cdc33a19f0fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   destructableTilemap: {fileID: 0}
   rangeDestroy: 2
   canExplode: 1
   boomVFX: {fileID: 8996751979651806259, guid: bb820b86a359e9f49b3e034148a69eb1, type: 3}
+  ground: 0
   hitPunch: {fileID: 3028286566944344083}
   hitKick: {fileID: 5055159450603711837}
   hitStomp: {fileID: 2648546352737989903}

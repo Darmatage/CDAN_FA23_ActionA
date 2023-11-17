@@ -5,24 +5,44 @@ using UnityEngine.Tilemaps;
 
 public class DestroyTiles_AlexK : MonoBehaviour{
 
-       public Tilemap destructableTilemap;
-       private List<Vector3> tileWorldLocations;
-       private List<bool> tileWorldGround, tileWorldStable;
-       public float rangeDestroy = 2f;
-       public bool canExplode = true;
+	public Tilemap destructableTilemap;
+	private List<Vector3> tileWorldLocations;
+	private List<bool> tileWorldGround, tileWorldStable;
+	public float rangeDestroy = 2f;
+	public bool canExplode = true;
+	public GameObject boomVFX;
+	//public AudioSource boomSFX;
 
-       public int ground = 0;
-       //public GameObject boomFX;
+	public int ground = 0;
+	
+	private Transform hitPoint;
+	public Transform hitPunch; // press 1
+	public Transform hitKick; // press 2
+	public Transform hitStomp; // press 3
+	public Transform hitPunchUp; // press 4
 
-       void Start(){
-              TileMapInit();
-       }
+	void Start(){
+		TileMapInit();
+	}
 
-       void Update(){
-              if ((Input.GetKeyDown("space")) && (canExplode == true)){
-                     destroyTileArea();
-              }
-       }
+	void Update(){
+		if (canExplode == true){
+			if (Input.GetKeyDown("1")){
+				hitPoint = hitPunch;
+				destroyTileArea();
+			} else if (Input.GetKeyDown("2")){
+				hitPoint = hitKick;
+				destroyTileArea();
+			} else if (Input.GetKeyDown("3")){
+				hitPoint = hitStomp;
+				destroyTileArea();
+			} else if (Input.GetKeyDown("4")){
+				hitPoint = hitPunchUp;
+				destroyTileArea();
+			}
+		}
+		rangeDestroy = (rangeDestroy + GameHandler_PlayerManager.playerSize) /2;
+	}
 
        void TileMapInit(){
               tileWorldLocations = new List<Vector3>();
@@ -44,7 +64,7 @@ public class DestroyTiles_AlexK : MonoBehaviour{
               for (int i = 0; i < tileWorldLocations.Count; i++) {
                      Vector3 tile = tileWorldLocations[i];
 
-                     if (Vector2.Distance(tile, transform.position) <= rangeDestroy){
+                     if (Vector2.Distance(tile, hitPoint.position) <= rangeDestroy){
                             destroyTile(i);
                             i--;
                      }
@@ -84,23 +104,32 @@ public class DestroyTiles_AlexK : MonoBehaviour{
               }
        }
 
-       private void destroyTile(int i) {
-              Vector3 tile = tileWorldLocations[i];
-              // Debug.Log("Destoryed Tile: " + tile.x + ", " + tile.y +  ", " + tile.x);
-              Vector3Int localPlace = destructableTilemap.WorldToCell(tile);
-              if (destructableTilemap.HasTile(localPlace)){
-                     destructableTilemap.SetTile(destructableTilemap.WorldToCell(tile), null);
-              }
+	private void destroyTile(int i) {
+		Vector3 tile = tileWorldLocations[i];
+		// Debug.Log("Destoryed Tile: " + tile.x + ", " + tile.y +  ", " + tile.x);
+		Vector3Int localPlace = destructableTilemap.WorldToCell(tile);
+		if (destructableTilemap.HasTile(localPlace)){
+			GameObject.FindWithTag("GameHandler").GetComponent<GameHandler_PlayerManager>().playerAddScore(1);
+			StartCoroutine(BoomVFX(tile));
+			destructableTilemap.SetTile(destructableTilemap.WorldToCell(tile), null);
+		}
 
-              tileWorldLocations.RemoveAt(i);
-              tileWorldGround.RemoveAt(i);
-              tileWorldStable.RemoveAt(i);
-       }
+		tileWorldLocations.RemoveAt(i);
+		tileWorldGround.RemoveAt(i);
+		tileWorldStable.RemoveAt(i);
+	}
 
-       //NOTE: To help see the attack sphere in editor:
-       void OnDrawGizmosSelected(){
-              Gizmos.DrawWireSphere(transform.position, rangeDestroy);
-       }
+	IEnumerator BoomVFX(Vector3 tilePos){
+		//boomSFX.Play();
+		GameObject tempVFX = Instantiate(boomVFX, tilePos, Quaternion.identity);
+		yield return new WaitForSeconds(1f);
+		Destroy(tempVFX);
+	}
+
+	//NOTE: To help see the attack sphere in editor:
+	void OnDrawGizmosSelected(){
+		Gizmos.DrawWireSphere(transform.position, rangeDestroy);
+	}
 }
 
 //grounded ness functionality by Alex Koppel

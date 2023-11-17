@@ -39,7 +39,6 @@ public class Player_DestroyTiles : MonoBehaviour{
 				destroyTileArea();
 			}
 		}
-		
 		rangeDestroy = (rangeDestroy + GameHandler_PlayerManager.playerSize) /2;
 	}
 
