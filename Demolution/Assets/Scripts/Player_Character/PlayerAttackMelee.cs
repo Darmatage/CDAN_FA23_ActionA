@@ -13,6 +13,7 @@ public class PlayerAttackMelee : MonoBehaviour{
       public int attackDamage = 40;
       public LayerMask enemyLayers;
 	  private Collider2D[] hitEnemies;
+	  public AudioSource stomp1SFX;
 
 	void Start(){
 		anim = gameObject.GetComponentInChildren<Animator>();
@@ -35,6 +36,7 @@ public class PlayerAttackMelee : MonoBehaviour{
 			}
 			if (Input.GetAxis("Attack_Stomp") > 0){
 				Attack("stomp");
+				stomp1SFX.Play();
 				nextAttackTime = Time.time + 1f / attackRate;
 			}
 		}
