@@ -12,6 +12,8 @@ public class Player_Grow : MonoBehaviour{
 	//public static float playerSize = 1;
 	
 	//local variables
+	public Animator anim1;
+	public Animator anim2;
 	public int pointsToNextLevel;
 	public float playerSizeMultiplier = 1.02f;
 	private float playerSizeNew;
@@ -68,6 +70,9 @@ public class Player_Grow : MonoBehaviour{
 		playerSizeNew = GameHandler_PlayerManager.playerSize * playerSizeMultiplier;
 		float ghostSizeNew = 1.1f * playerSizeMultiplier;
 		float theTime = 0.5f;
+		
+		anim1.SetTrigger("Grow");
+		anim2.SetTrigger("Grow");
 		
 		//growSFX.Play();
 		StartCoroutine(PlayerGrowVFX(1f, ghostSizeNew, theTime));
