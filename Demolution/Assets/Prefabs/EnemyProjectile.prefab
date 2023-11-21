@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 120
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -203,8 +203,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba11f24e1c2d5f49bcd644a0938b5c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameHandlerObj: {fileID: 0}
   damage: 1
   speed: 10
   hitEffectAnim: {fileID: 4638626971595538857, guid: aee54339d72869a42ad6a4ee3362b326, type: 3}
   SelfDestructTime: 2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64

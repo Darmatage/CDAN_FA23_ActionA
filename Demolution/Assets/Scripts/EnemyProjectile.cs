@@ -11,6 +11,8 @@ public class EnemyProjectile : MonoBehaviour {
        private Vector2 target;
        public GameObject hitEffectAnim;
        public float SelfDestructTime = 2.0f;
+	   
+	   public LayerMask groundLayer;
 
        void Start() {
              //NOTE: transform gets location, but we need Vector2 for direction, so we can use MoveTowards.
@@ -36,11 +38,11 @@ public class EnemyProjectile : MonoBehaviour {
        }
 
        //if the bullet hits a collider, play the explosion animation, then destroy the effect and the bullet
-       void OnTriggerEnter2D(Collider2D collision){
-              if (collision.gameObject.tag == "Player") {
+       void OnTriggerEnter2D(Collider2D other){
+              if (other.gameObject.tag == "Player") {
                      gameHandlerObj.playerGetHit(damage);
               }
-              if (collision.gameObject.tag != "enemyShooter") {
+              if ((other.gameObject.tag != "enemyShooter") && (other.gameObject.layer != groundLayer)){
                      GameObject animEffect = Instantiate (hitEffectAnim, transform.position, Quaternion.identity);
                      Destroy (animEffect, 0.5f);
                      Destroy (gameObject);
