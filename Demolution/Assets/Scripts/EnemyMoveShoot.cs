@@ -27,36 +27,50 @@ public class EnemyMoveShoot : MonoBehaviour {
        public bool isAttacking = false;
        private float scaleX;
 
+	private float myPositionY;
+	private Vector2 playerMoveXonly;
+	private Vector2 playerMovePos;
+
 
 	//if tank is true, slower speed, bigger art/collider, bigger / more powerful projectile
 	public bool isTank = true;
 
-       void Start () {
-              Physics2D.queriesStartInColliders = false;
-              scaleX = gameObject.transform.localScale.x;
+	void Start () {
+		myPositionY = gameObject.transform.position.y;
+		   
+		Physics2D.queriesStartInColliders = false;
+		scaleX = gameObject.transform.localScale.x;
 
-              rb = GetComponent<Rigidbody2D> ();
-              player = GameObject.FindWithTag("PlayerCenter").transform;
-              PlayerVect = player.transform.position;
+		rb = GetComponent<Rigidbody2D> ();
+		player = GameObject.FindWithTag("PlayerCenter").transform;
+		PlayerVect = player.transform.position;
 
-              timeBtwShots = startTimeBtwShots;
+		timeBtwShots = startTimeBtwShots;
 
-              rend = GetComponentInChildren<Renderer> ();
-              //anim = GetComponentInChildren<Animator> ();
+		rend = GetComponentInChildren<Renderer> ();
+		//anim = GetComponentInChildren<Animator> ();
 
-              //if (GameObject.FindWithTag ("GameHandler") != null) {
-              // gameHander = GameObject.FindWithTag ("GameHandler").GetComponent<GameHandler> ();
-              //}
+		//if (GameObject.FindWithTag ("GameHandler") != null) {
+		// gameHander = GameObject.FindWithTag ("GameHandler").GetComponent<GameHandler> ();
+		//}
 			  
-       }
+	}
 
 	void Update () {
-
-		float DistToPlayer = Vector3.Distance(transform.position, player.position);
+		
+		playerMovePos = new Vector2(player.position.x, player.position.y);
+		playerMoveXonly = new Vector2(player.position.x, myPositionY);
+		
+		if (isTank){
+			playerMovePos = playerMoveXonly;
+		} 
+		
+		
+		float DistToPlayer = Vector3.Distance(transform.position, playerMovePos);
 		if ((player != null) && (DistToPlayer <= attackRange)) {
 			// approach player
-			if (Vector2.Distance (transform.position, player.position) > stoppingDistance) {
-				transform.position = Vector2.MoveTowards (transform.position, player.position, speed * Time.deltaTime);
+			if (Vector2.Distance (transform.position, playerMovePos) > stoppingDistance) {
+				transform.position = Vector2.MoveTowards (transform.position, playerMovePos, speed * Time.deltaTime);
 				if (isAttacking == false) {
 					//anim.SetBool("Walk", true);
 				}
@@ -65,21 +79,21 @@ public class EnemyMoveShoot : MonoBehaviour {
 				//rb.rotation = angle;
 			}
 			// stop moving
-			else if (Vector2.Distance (transform.position, player.position) < stoppingDistance && Vector2.Distance (transform.position, player.position) > retreatDistance) {
+			else if (Vector2.Distance (transform.position, playerMovePos) < stoppingDistance && Vector2.Distance (transform.position, playerMovePos) > retreatDistance) {
 				transform.position = this.transform.position;
 				//anim.SetBool("Walk", false);
 			}
 
                      // retreat from player
-                     else if (Vector2.Distance (transform.position, player.position) < retreatDistance) {
-                            transform.position = Vector2.MoveTowards (transform.position, player.position, -speed * Time.deltaTime);
+                     else if (Vector2.Distance (transform.position, playerMovePos) < retreatDistance) {
+                            transform.position = Vector2.MoveTowards (transform.position, playerMovePos, -speed * Time.deltaTime);
                             if (isAttacking == false) {
                                    //anim.SetBool("Walk", true);
                             }
                      }
 
                      //Flip enemy to face player direction. Wrong direction? Swap the * -1.
-                     if (player.position.x > gameObject.transform.position.x){
+                     if (playerMovePos.x > gameObject.transform.position.x){
                             gameObject.transform.localScale = new Vector2(scaleX * -1, gameObject.transform.localScale.y);
                     } else {
                              gameObject.transform.localScale = new Vector2(scaleX, gameObject.transform.localScale.y);
