@@ -12,7 +12,9 @@ public class PlayerAttackMelee : MonoBehaviour{
       private float nextAttackTime = 0f;
       public int attackDamage = 40;
       public LayerMask enemyLayers;
+	  public LayerMask crushableLayers;
 	  private Collider2D[] hitEnemies;
+	  //private Collider2D[] hitCrushable;
 	  public AudioSource stomp1SFX;
 
 	void Start(){
@@ -58,12 +60,21 @@ public class PlayerAttackMelee : MonoBehaviour{
 		} else {
 			anim.SetTrigger ("attack_stomp");
 			hitEnemies = Physics2D.OverlapCircleAll(attackPt_stomp.position, attackRange, enemyLayers);
+			//hitCrushable = Physics2D.OverlapCircleAll(attackPt_stomp.position, attackRange, crushableLayers);
 		}
 		
 		foreach(Collider2D enemy in hitEnemies){
 			Debug.Log("We hit " + enemy.name);
 			enemy.GetComponent<EnemyMeleeDamage>().TakeDamage(attackDamage);
 		}
+		
+		/*
+		foreach(Collider2D crushObject in crushableLayers){
+			Debug.Log("We hit " + crushObject.name);
+			enemy.GetComponent<CrushableObject>().TakeDamage(attackDamage);
+		}
+		*/
+		
 	}
 
 	//NOTE: to help see the attack sphere in editor:
