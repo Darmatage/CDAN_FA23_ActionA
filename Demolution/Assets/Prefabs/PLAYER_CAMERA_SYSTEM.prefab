@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &14801342647689476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5042645617851081849}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5042645617851081849
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14801342647689476}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.436, y: 2.86, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8601706744154650954}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1091407646697029856
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +481,7 @@ GameObject:
   - component: {fileID: 3708647653936277422}
   - component: {fileID: 6901922802269007980}
   - component: {fileID: 1544579798709728175}
+  - component: {fileID: 2939140223638232306}
   - component: {fileID: 1979109001876663138}
   m_Layer: 0
   m_Name: Player
@@ -482,6 +514,8 @@ Transform:
   - {fileID: 8567901833456623617}
   - {fileID: 8064388518406555826}
   - {fileID: 2508958526421426286}
+  - {fileID: 5042645617851081849}
+  - {fileID: 6622732394801167709}
   m_Father: {fileID: 4141772059532150584}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -669,6 +703,9 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 8
+  crushableLayers:
+    serializedVersion: 2
+    m_Bits: 0
   stomp1SFX: {fileID: 2091466928128674741}
 --- !u!114 &1544579798709728175
 MonoBehaviour:
@@ -688,6 +725,23 @@ MonoBehaviour:
   playerSizeMultiplier: 1.05
   ghostVFX: {fileID: 2098597452521923236}
   myCamGrow: {fileID: 4972829200565046492}
+--- !u!114 &2939140223638232306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3694094755244433844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f16b3a1dd2d97f44ab6d0bf9c0d0e802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 5042645617851081849}
+  fireDirectionDefault: {fileID: 6622732394801167709}
+  projectilePrefab: {fileID: 499132103704709433, guid: cde7e11ddabef9147bbd83ece97e8f8a, type: 3}
+  projectileSpeed: 10
+  attackRate: 2
 --- !u!114 &1979109001876663138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,6 +763,37 @@ MonoBehaviour:
   hitKick: {fileID: 5055159450603711837}
   hitStomp: {fileID: 2648546352737989903}
   hitPunchUp: {fileID: 6785251014359598858}
+--- !u!1 &4422774206921744235
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6622732394801167709}
+  m_Layer: 0
+  m_Name: FireDirectionDefault
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6622732394801167709
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4422774206921744235}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.939, y: 2.86, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8601706744154650954}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4733440830455350929
 GameObject:
   m_ObjectHideFlags: 0
