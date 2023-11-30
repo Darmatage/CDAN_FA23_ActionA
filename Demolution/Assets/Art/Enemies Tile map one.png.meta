@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 37dce442a9807dd47a9fdcc56eaa898b
+guid: 60fb05cfb3746174b921a3d2fa0e9343
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Full complete Explosion Sprie sheet_0
+      name: Enemies Tile map one_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
-        width: 32
-        height: 32
+        y: 1536
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1668deb8109e3dd4fb450362c225cc17
-      internalID: 207368267
+      spriteID: 0115bd1736f18244787fc2823304a09a
+      internalID: 1642666211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Full complete Explosion Sprie sheet_1
+      name: Enemies Tile map one_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
-        width: 32
-        height: 32
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c40c7bdd16f34c4c89a410114fa7ca6
-      internalID: -1457560203
+      spriteID: e8fb5f9a42d4a08428a6e5ba678a5b48
+      internalID: -1513284546
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Full complete Explosion Sprie sheet_2
+      name: Enemies Tile map one_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 96
-        width: 32
-        height: 32
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccaf3e91c86eb174fb65fb98f30e86db
-      internalID: 1550447836
+      spriteID: 4d1839f7c23c10c4699488ac4ac5eb66
+      internalID: -1827196574
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Full complete Explosion Sprie sheet_3
+      name: Enemies Tile map one_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
-        width: 32
-        height: 32
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,104 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3234ab216b320e14e83484fe2cb64b9c
-      internalID: 1889152213
+      spriteID: c5073a005886a4c41b9de97ba177dae0
+      internalID: 1199234254
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Full complete Explosion Sprie sheet_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c28e332e7895eb048956cddb03439918
-      internalID: -460652917
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Full complete Explosion Sprie sheet_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 85302dddeaa67d246b7357817c71f615
-      internalID: 1829992335
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Full complete Explosion Sprie sheet_6
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9a48068c4414db24f83e4969d3a94279
-      internalID: -1648036649
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Full complete Explosion Sprie sheet_7
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 166b9eda59931884a944355e078c0b3c
-      internalID: 1317774442
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Full complete Explosion Sprie sheet_8
+      name: Enemies Tile map one_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 32
-        height: 32
+        y: 1024
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0a156b28cc2d2348ae5eb7a7be36028
-      internalID: -1629447520
+      spriteID: f2e93057cdf4392489b2c71b53a5d9e9
+      internalID: 1150589338
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Full complete Explosion Sprie sheet_9
+      name: Enemies Tile map one_5
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d9712ad4e86a7b459577796c62f7f14
-      internalID: -1400650922
+      spriteID: dc75b35ab5ea9794d941031af494109a
+      internalID: 1456284004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Full complete Explosion Sprie sheet_10
+      name: Enemies Tile map one_6
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,20 +263,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c7741ee87b62464088bc69464b71564
-      internalID: -489303493
+      spriteID: 385cbcab979a44742b7e5da72075bb56
+      internalID: 2008732646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Full complete Explosion Sprie sheet_11
+      name: Enemies Tile map one_7
       rect:
         serializedVersion: 2
-        x: 96
-        y: 32
-        width: 32
-        height: 32
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,20 +284,104 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fae031fff164be4c9e5e00827fc8e1e
-      internalID: 817667050
+      spriteID: 1a87044dbb8eb4a47a4724db17697b79
+      internalID: 796369812
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Full complete Explosion Sprie sheet_12
+      name: Enemies Tile map one_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8be31be8f5b50147b6c5713bcda578d
+      internalID: 1956462535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies Tile map one_9
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd40283920dc314893294916c37c498
+      internalID: -1306308343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies Tile map one_10
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1504b14bc71ca4a40a30dc8645a8b8c1
+      internalID: -350868419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies Tile map one_11
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e34d56979480f747b6deb835b03a24f
+      internalID: -1416284127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies Tile map one_12
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,20 +389,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aeeafa84fe302dc4f9e1903ebfcde08e
-      internalID: -124459067
+      spriteID: b940b6ab44b5c4a47a51cc1c7e92ca51
+      internalID: -236878081
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Full complete Explosion Sprie sheet_13
+      name: Enemies Tile map one_13
       rect:
         serializedVersion: 2
-        x: 32
+        x: 512
         y: 0
-        width: 32
-        height: 32
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,20 +410,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 996f6a333926e454f8186d6e0f6f72b7
-      internalID: -1080476563
+      spriteID: f61ff163ee476f246a9e35ab7a10d7e6
+      internalID: -1202107356
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Full complete Explosion Sprie sheet_14
+      name: Enemies Tile map one_14
       rect:
         serializedVersion: 2
-        x: 64
+        x: 1024
         y: 0
-        width: 32
-        height: 32
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -431,20 +431,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d20f79f5ac76044f85216331e3f9145
-      internalID: -1690999585
+      spriteID: 9b44a2c284767cb4ca372fcf020f1a8a
+      internalID: -186423039
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Full complete Explosion Sprie sheet_15
+      name: Enemies Tile map one_15
       rect:
         serializedVersion: 2
-        x: 96
+        x: 1536
         y: 0
-        width: 32
-        height: 32
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -452,8 +452,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6ffcf3185deca3498f8c493e96bdd01
-      internalID: 905757729
+      spriteID: ccc8c10947bfc6942ba104e7b5087bba
+      internalID: 389264169
       vertices: []
       indices: 
       edges: []
@@ -469,22 +469,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Full complete Explosion Sprie sheet_0: 207368267
-      Full complete Explosion Sprie sheet_1: -1457560203
-      Full complete Explosion Sprie sheet_10: -489303493
-      Full complete Explosion Sprie sheet_11: 817667050
-      Full complete Explosion Sprie sheet_12: -124459067
-      Full complete Explosion Sprie sheet_13: -1080476563
-      Full complete Explosion Sprie sheet_14: -1690999585
-      Full complete Explosion Sprie sheet_15: 905757729
-      Full complete Explosion Sprie sheet_2: 1550447836
-      Full complete Explosion Sprie sheet_3: 1889152213
-      Full complete Explosion Sprie sheet_4: -460652917
-      Full complete Explosion Sprie sheet_5: 1829992335
-      Full complete Explosion Sprie sheet_6: -1648036649
-      Full complete Explosion Sprie sheet_7: 1317774442
-      Full complete Explosion Sprie sheet_8: -1629447520
-      Full complete Explosion Sprie sheet_9: -1400650922
+      Enemies Tile map one_0: 1642666211
+      Enemies Tile map one_1: -1513284546
+      Enemies Tile map one_10: -350868419
+      Enemies Tile map one_11: -1416284127
+      Enemies Tile map one_12: -236878081
+      Enemies Tile map one_13: -1202107356
+      Enemies Tile map one_14: -186423039
+      Enemies Tile map one_15: 389264169
+      Enemies Tile map one_2: -1827196574
+      Enemies Tile map one_3: 1199234254
+      Enemies Tile map one_4: 1150589338
+      Enemies Tile map one_5: 1456284004
+      Enemies Tile map one_6: 2008732646
+      Enemies Tile map one_7: 796369812
+      Enemies Tile map one_8: 1956462535
+      Enemies Tile map one_9: -1306308343
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
