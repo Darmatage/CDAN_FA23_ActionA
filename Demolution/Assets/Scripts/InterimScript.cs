@@ -33,7 +33,8 @@ level4button.SetActive(false);
     {
       if (GameHandler.levelNumber == 1)//going into level 2
       {
-
+        level1text.SetActive(true);
+        level1button.SetActive(true);
       }
       if (GameHandler.levelNumber == 2)//going into level 3
       {
@@ -51,7 +52,10 @@ level4button.SetActive(false);
 
     public void toLevel2Funct()
     {
-
+      level1text.SetActive(false);
+      level1button.SetActive(false);
+      GameHandler.levelNumber = 2;
+      GameHandler.fireballUnlocked = true;
     }
     public void toLevel3Funct()
     {

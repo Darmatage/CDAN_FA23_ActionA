@@ -18,6 +18,7 @@ public class Player_ShootAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      if (GameHandler.fireballUnlocked == true ){
       if (Time.time >= nextAttackTime)
       {
         if (Input.GetAxis("Attack") > 0)
@@ -27,6 +28,7 @@ public class Player_ShootAttack : MonoBehaviour
         }
       }
     }
+  }
 
     void playerFire()
     {
