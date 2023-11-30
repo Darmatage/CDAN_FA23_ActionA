@@ -55,11 +55,12 @@ level4button.SetActive(false);
 
     public void toLevel2Funct()
     {
+      SceneManager.LoadScene("Work_Thomas");
       level1text.SetActive(false);
       level1button.SetActive(false);
       GameHandler.levelNumber = 2;
       GameHandler.doubleJumpUnlocked = true;
-      SceneManager.LoadScene("Work_Thomas");
+
     }
     public void toLevel3Funct()
     {
