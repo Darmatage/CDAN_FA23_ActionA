@@ -30,6 +30,9 @@ public class PlayerAttackShoot : MonoBehaviour
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
+        if(GameHandler.fireballUnlocked == true){
+
+
         if (Time.time >= nextAttackTime)
         {
             //if (Input.GetKeyDown(KeyCode.Space))
@@ -40,6 +43,7 @@ public class PlayerAttackShoot : MonoBehaviour
             }
         }
     }
+  }
 
     void playerFire()
     {
@@ -50,8 +54,8 @@ public class PlayerAttackShoot : MonoBehaviour
         {
             fwd = (mousePos - (Vector2)firePoint.position).normalized;
         }
-        else { 
-            fwd = ((Vector2)fireDirectionDefault.position - (Vector2)firePoint.position).normalized; 
+        else {
+            fwd = ((Vector2)fireDirectionDefault.position - (Vector2)firePoint.position).normalized;
         }
 
 

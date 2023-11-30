@@ -23,6 +23,10 @@ public class GameHandler : MonoBehaviour {
       private string sceneName;
       public static string lastLevelDied;  //allows replaying the Level where you died
 
+      public static int levelNumber = 1;
+      public static bool fireballUnlocked = false;
+      public static bool doubleJumpUnlocked = false;
+
       void Start(){
             player = GameObject.FindWithTag("Player");
             sceneName = SceneManager.GetActiveScene().name;
@@ -100,7 +104,7 @@ public class GameHandler : MonoBehaviour {
             GameHandler_PlayerManager.pointsToLevel1 = 0;
             GameHandler_PlayerManager.pointsToLevel2 = 10;
             GameHandler_PlayerManager.playerLevel = 1;
-            GameHandler_PlayerManager.playerSize = 1; 
+            GameHandler_PlayerManager.playerSize = 1;
       }
 
       // Replay the Level where you died

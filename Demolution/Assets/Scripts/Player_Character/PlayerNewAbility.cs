@@ -17,14 +17,14 @@ public class PlayerNewAbility : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown("l")) //trigger for upgrades, can be replaced with a score threshhold
-        { 
+        {
             doubleJumpButton.SetActive(true);
         }
     }
 
     public void doubleJumpChoiceFunct()
     {
-        jumpScript.GetComponent<PlayerJump>().doubleJump = true;
+        
         doubleJumpButton.SetActive(false);
     }
 }
