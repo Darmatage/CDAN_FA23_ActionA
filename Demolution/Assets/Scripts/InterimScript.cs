@@ -38,15 +38,18 @@ level4button.SetActive(false);
       }
       if (GameHandler.levelNumber == 2)//going into level 3
       {
-
+        level2text.SetActive(true);
+        level2button.SetActive(true);
       }
       if (GameHandler.levelNumber == 3)//going into level 4
       {
-
+        level3text.SetActive(true);
+        level3button.SetActive(true);
       }
       if (GameHandler.levelNumber == 4)//going into level 5
       {
-
+        level4text.SetActive(true);
+        level4button.SetActive(true);
       }
     }
 
@@ -55,18 +58,31 @@ level4button.SetActive(false);
       level1text.SetActive(false);
       level1button.SetActive(false);
       GameHandler.levelNumber = 2;
-      GameHandler.fireballUnlocked = true;
+      GameHandler.doubleJumpUnlocked = true;
+      SceneManager.LoadScene("Work_Thomas");
     }
     public void toLevel3Funct()
     {
-
+      level2text.SetActive(false);
+      level2button.SetActive(false);
+      GameHandler.levelNumber = 3;
+      GameHandler.fireballUnlocked = true;
+      SceneManager.LoadScene("Level3");
     }
     public void toLevel4Funct()
     {
+      level3text.SetActive(false);
+      level3button.SetActive(false);
+      GameHandler.levelNumber = 4;
 
+      SceneManager.LoadScene("Level4");
     }
     public void toLevel5Funct()
     {
+      level1text.SetActive(false);
+      level1button.SetActive(false);
+      GameHandler.levelNumber = 5;
 
+      SceneManager.LoadScene("Level5");
     }
 }

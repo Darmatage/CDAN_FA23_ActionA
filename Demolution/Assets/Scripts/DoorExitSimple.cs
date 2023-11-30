@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DoorExitSimple : MonoBehaviour{
 
-      public string NextLevel = "MainMenu";
+      public string NextLevel = "TransitionLevel";
 
       public void OnTriggerEnter2D(Collider2D other){
             if (other.gameObject.tag == "Player"){

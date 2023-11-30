@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndWin.unity
     guid: fb6c48f0835988548b54935c18225ce6
+  - enabled: 1
+    path: Assets/Scenes/LevelTransition.unity
+    guid: 23ea7b93202814fe59f2ae1841938d33
+  - enabled: 1
+    path: Assets/Scenes/Work_Thomas.unity
+    guid: 84c6298a3ad69443885c1899d46286e6
   m_configObjects: {}
