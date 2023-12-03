@@ -67,6 +67,29 @@ public class GameHandler : MonoBehaviour {
             }
       }
 
+
+	public void playerGetHealth(int bonus){
+		playerHealth += bonus;
+		if (playerHealth >=0){
+			updateStatsDisplay();
+		}
+		if (bonus > 0){
+			//player.GetComponent<PlayerHurt>().playerHit();       //play GetHit animation
+		}
+
+		if (playerHealth > StartPlayerHealth){
+			playerHealth = StartPlayerHealth;
+			updateStatsDisplay();
+		}
+
+		if (playerHealth <= 0){
+			playerHealth = 0;
+			updateStatsDisplay();
+			playerDies();
+		}
+	}
+
+
       public void updateStatsDisplay(){
             Text healthTextTemp = healthText.GetComponent<Text>();
             healthTextTemp.text = "HEALTH: " + playerHealth;
