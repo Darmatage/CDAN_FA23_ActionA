@@ -5,11 +5,12 @@ using UnityEngine;
 public class PlayerJump : MonoBehaviour{
 
 	private Animator anim;
-	private Rigidbody2D rb;
+	private Rigidbody2D rb2D;
 	public float jumpForce = 5f;
 	public Transform feet;
 	public LayerMask groundLayer;
 	public LayerMask enemyLayer;
+	public LayerMask climbLayer;
 	public bool canJump = false;
 	public int jumpTimes = 0;
 	public bool isAlive = true;
@@ -17,16 +18,18 @@ public class PlayerJump : MonoBehaviour{
 	//public AudioSource JumpSFX;
 
 	public bool heyIsGrounded = true;
+	public bool heyIsClimbable = false;
+	public float climbSpeed = 4f;
 
 	void Start(){
 		anim = gameObject.GetComponentInChildren<Animator>();
-        rb = GetComponent<Rigidbody2D>();
+        rb2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
       heyIsGrounded = IsGrounded();
+	  heyIsClimbable = isClimbable();
 
         if((IsGrounded()) && (jumpTimes == 0)){
             canJump = true;
@@ -45,11 +48,28 @@ public class PlayerJump : MonoBehaviour{
         if ((Input.GetButtonDown("Jump")) && (canJump) && (isAlive == true)) {
             Jump();
         }
+		
+		//climbable is essentially movement from a top-down game, with vertical enabled:
+		if (isClimbable()){
+			rb2D.gravityScale = 0;
+			Vector3 hvMove = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
+			transform.position = transform.position + hvMove * climbSpeed * Time.deltaTime;
+			if (Input.GetAxis("Vertical") != 0){
+			//anim.SetBool ("Climb", true);
+			//     if (!WalkSFX.isPlaying){
+			//           WalkSFX.Play();
+			//     }
+			} else {
+			//     anim.SetBool ("Climb", false);
+			//     WalkSFX.Stop();
+			}
+		}
+		
     }
 
     public void Jump() {
 		jumpTimes += 1;
-		rb.velocity = Vector2.up * jumpForce;
+		rb2D.velocity = Vector2.up * jumpForce;
 		anim.SetTrigger("jump");
 		// JumpSFX.Play();
     }
@@ -63,6 +83,19 @@ public class PlayerJump : MonoBehaviour{
       }
       return false;
     }
+
+
+	//need to make the climbable radius grow based on player size
+	public bool isClimbable(){
+		Collider2D climbCheck = Physics2D.OverlapCircle(feet.position, 1f, climbLayer);
+		if (climbCheck != null) {
+			return true;
+		}
+		//anim.SetBool("PlayerClimb", false);
+		rb2D.gravityScale = 1;
+		return false;
+	}
+
 
 	public void jumpForceGrow(){
 		jumpForce = jumpForce * 1.02f;

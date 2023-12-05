@@ -662,11 +662,15 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
+  climbLayer:
+    serializedVersion: 2
+    m_Bits: 128
   canJump: 0
   jumpTimes: 0
   isAlive: 1
-  doubleJump: 0
   heyIsGrounded: 1
+  heyIsClimbable: 0
+  climbSpeed: 4
 --- !u!114 &3708647653936277422
 MonoBehaviour:
   m_ObjectHideFlags: 0
