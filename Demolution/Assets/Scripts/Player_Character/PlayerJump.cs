@@ -55,12 +55,12 @@ public class PlayerJump : MonoBehaviour{
 			Vector3 hvMove = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
 			transform.position = transform.position + hvMove * climbSpeed * Time.deltaTime;
 			if (Input.GetAxis("Vertical") != 0){
-			//anim.SetBool ("Climb", true);
+			anim.SetBool ("Climb", true);
 			//     if (!WalkSFX.isPlaying){
 			//           WalkSFX.Play();
 			//     }
 			} else {
-			//     anim.SetBool ("Climb", false);
+			     anim.SetBool ("Climb", false);
 			//     WalkSFX.Stop();
 			}
 		}
@@ -91,7 +91,7 @@ public class PlayerJump : MonoBehaviour{
 		if (climbCheck != null) {
 			return true;
 		}
-		//anim.SetBool("PlayerClimb", false);
+		anim.SetBool("PlayerClimb", false);
 		rb2D.gravityScale = 1;
 		return false;
 	}
