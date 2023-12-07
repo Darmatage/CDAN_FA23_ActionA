@@ -6,14 +6,16 @@ public class PlayerAttackMelee : MonoBehaviour{
 
       private Animator anim;
       public Transform attackPt_PunchForward, attackPt_PunchUp, attackPt_kick, attackPt_stomp;
-	  
+
       public float attackRange = 0.5f;
       public float attackRate = 2f;
       private float nextAttackTime = 0f;
       public int attackDamage = 40;
       public LayerMask enemyLayers;
+      public LayerMask entityLayers;
 	  public LayerMask crushableLayers;
 	  private Collider2D[] hitEnemies;
+    private Collider2D[] hitEntities;
 	  //private Collider2D[] hitCrushable;
 	  public AudioSource stomp1SFX;
 	  public AudioSource kick1SFX;
@@ -48,54 +50,63 @@ public class PlayerAttackMelee : MonoBehaviour{
 				nextAttackTime = Time.time + 1f / attackRate;
 			}
 		}
-		
+
 		attackRange = GameHandler_PlayerManager.playerSize / 2;
-		
+
 	}
 
 	void Attack(string move){
 		if (move == "punchForward"){
 			anim.SetTrigger ("attack_punchForward");
 			hitEnemies = Physics2D.OverlapCircleAll(attackPt_PunchForward.position, attackRange, enemyLayers);
+      hitEntities = Physics2D.OverlapCircleAll(attackPt_PunchForward.position, attackRange, entityLayers);
 		} else if (move == "punchUp"){
 			anim.SetTrigger ("attack_punchUp");
 			hitEnemies = Physics2D.OverlapCircleAll(attackPt_PunchUp.position, attackRange, enemyLayers);
+      hitEntities = Physics2D.OverlapCircleAll(attackPt_PunchUp.position, attackRange, entityLayers);
 		} else if (move == "kick"){
 			anim.SetTrigger ("attack_kick");
 			hitEnemies = Physics2D.OverlapCircleAll(attackPt_kick.position, attackRange, enemyLayers);
+      hitEntities = Physics2D.OverlapCircleAll(attackPt_kick.position, attackRange, entityLayers);
 		} else {
 			anim.SetTrigger ("attack_stomp");
 			hitEnemies = Physics2D.OverlapCircleAll(attackPt_stomp.position, attackRange, enemyLayers);
+      hitEntities = Physics2D.OverlapCircleAll(attackPt_stomp.position, attackRange, entityLayers);
 			//hitCrushable = Physics2D.OverlapCircleAll(attackPt_stomp.position, attackRange, crushableLayers);
 		}
-		
+
 		foreach(Collider2D enemy in hitEnemies){
 			Debug.Log("We hit " + enemy.name);
 			enemy.GetComponent<EnemyMeleeDamage>().TakeDamage(attackDamage);
 		}
-		
+
+    foreach(Collider2D entity in hitEntities)
+    {
+      Debug.Log("We hit " + entity.name);
+      entity.GetComponent<FireHydrandHeal>().TakeDamage(attackDamage);
+    }
 		/*
 		foreach(Collider2D crushObject in crushableLayers){
 			Debug.Log("We hit " + crushObject.name);
 			enemy.GetComponent<CrushableObject>().TakeDamage(attackDamage);
 		}
 		*/
-		
+
 	}
 
 	//NOTE: to help see the attack sphere in editor:
 	void OnDrawGizmosSelected(){
 		if (attackPt_PunchForward == null) {return;}
 		Gizmos.DrawWireSphere(attackPt_PunchForward.position, attackRange);
-		
+
 		if (attackPt_PunchUp == null) {return;}
 		Gizmos.DrawWireSphere(attackPt_PunchUp.position, attackRange);
-		
+
 		if (attackPt_kick == null) {return;}
 		Gizmos.DrawWireSphere(attackPt_kick.position, attackRange);
-		
+
 		if (attackPt_stomp == null) {return;}
 		Gizmos.DrawWireSphere(attackPt_stomp.position, attackRange);
 	}
-	
+
 }
