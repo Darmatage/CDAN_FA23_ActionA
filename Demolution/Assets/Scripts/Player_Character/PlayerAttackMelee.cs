@@ -16,6 +16,9 @@ public class PlayerAttackMelee : MonoBehaviour{
 	  private Collider2D[] hitEnemies;
 	  //private Collider2D[] hitCrushable;
 	  public AudioSource stomp1SFX;
+	  public AudioSource kick1SFX;
+	  public AudioSource punch1SFX;
+	  public AudioSource punchup1SFX;
 
 	void Start(){
 		anim = gameObject.GetComponentInChildren<Animator>();
@@ -26,14 +29,17 @@ public class PlayerAttackMelee : MonoBehaviour{
 			//if (Input.GetKeyDown(KeyCode.Space))
 			if (Input.GetAxis("Attack_PunchForward") > 0){
 				Attack("punchForward");
+				punch1SFX.Play();
 				nextAttackTime = Time.time + 1f / attackRate;
 			}
 			if (Input.GetAxis("Attack_PunchUp") > 0){
 				Attack("punchUp");
+				punchup1SFX.Play();
 				nextAttackTime = Time.time + 1f / attackRate;
 			}
 			if (Input.GetAxis("Attack_Kick") > 0){
 				Attack("kick");
+				kick1SFX.Play();
 				nextAttackTime = Time.time + 1f / attackRate;
 			}
 			if (Input.GetAxis("Attack_Stomp") > 0){

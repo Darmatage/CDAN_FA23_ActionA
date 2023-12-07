@@ -26,6 +26,7 @@ public class EnemyMoveShoot_Copter : MonoBehaviour {
        public float attackRange = 10;
        public bool isAttacking = false;
        private float scaleX;
+	   public AudioSource helishoot1SFX;
 
 		
 
@@ -33,6 +34,7 @@ public class EnemyMoveShoot_Copter : MonoBehaviour {
 	public bool isCopter = true;
 	private float flyY_Top;
 	private float flyY_Bottom;
+    public AudioSource helifly1SFX;
 
        void Start () {
               Physics2D.queriesStartInColliders = false;
@@ -64,6 +66,7 @@ public class EnemyMoveShoot_Copter : MonoBehaviour {
 					  flyY_Bottom = playerYMiddle;
 				  } else {
 					  flyY_Bottom = playerYTop * 2;
+					    helifly1SFX.Play();
 				  }
 			  }
 			  
@@ -114,6 +117,7 @@ public class EnemyMoveShoot_Copter : MonoBehaviour {
                      //Timer for shooting projectiles
                      if (timeBtwShots <= 0) {
                             isAttacking = true;
+							helishoot1SFX.Play();
                             //anim.SetTrigger("Attack");
                             Instantiate (projectile, firePoint.position, Quaternion.identity);
                             timeBtwShots = startTimeBtwShots;

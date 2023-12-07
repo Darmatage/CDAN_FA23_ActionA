@@ -25,6 +25,8 @@ public class Player_Grow : MonoBehaviour{
 	private float camGrowAmt = 0.2f;
 	private int camTimerSmall = 0;
 	private int camTimerBig = 0;
+	public AudioSource roar1SFX;
+
 
 	void Start(){
 		gameObject.transform.localScale = new Vector3(
@@ -56,6 +58,7 @@ public class Player_Grow : MonoBehaviour{
 			//update player size and level:
 			GameHandler_PlayerManager.playerLevel ++;
 			StartCoroutine(PlayerGrowers());
+			roar1SFX.Play();
 			
 			//update two points records 
 			GameHandler_PlayerManager.pointsToLevel1 = GameHandler_PlayerManager.pointsToLevel2;
