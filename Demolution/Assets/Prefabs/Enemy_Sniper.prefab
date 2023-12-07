@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 437869463308955624}
   - component: {fileID: 4094952259198302531}
   - component: {fileID: 8893349696143517985}
+  - component: {fileID: 4382318064729502846}
   m_Layer: 3
   m_Name: Enemy_Sniper
   m_TagString: Untagged
@@ -148,7 +149,7 @@ Transform:
   - {fileID: 1329654713636504967}
   - {fileID: 5682601268653194721}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &4094952259198302531
 BoxCollider2D:
@@ -215,6 +216,23 @@ MonoBehaviour:
   player: {fileID: 0}
   attackRange: 10
   isAttacking: 0
+--- !u!114 &4382318064729502846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6125496412139113209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 748b4057f24fdfe4cb4b1ea34844b296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthLoot: {fileID: 2203060892451896176, guid: 5bc7ed8e32d1d564aa0c2f36027eabb2, type: 3}
+  maxHealth: 100
+  currentHealth: 0
+  smokeTrailVFX: {fileID: 3487005813693443221, guid: 32bc6e49626a9b044a27a29abdd8ca2c, type: 3}
+  isCopter: 0
 --- !u!1 &7104729263115932397
 GameObject:
   m_ObjectHideFlags: 0
