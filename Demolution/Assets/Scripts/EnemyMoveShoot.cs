@@ -12,7 +12,7 @@ public class EnemyMoveShoot : MonoBehaviour {
        public float startTimeBtwShots = 2;
 	   public Transform firePoint;
 	   public Transform turretHub;
-	   public Transform turretDefault;
+	   //public Transform turretDefault;
        public GameObject projectile;
 
        private Rigidbody2D rb;
