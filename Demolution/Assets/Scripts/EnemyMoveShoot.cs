@@ -30,6 +30,7 @@ public class EnemyMoveShoot : MonoBehaviour {
 	private float myPositionY;
 	private Vector2 playerMoveXonly;
 	private Vector2 playerMovePos;
+	public AudioSource tankshoot1SFX;
 
 
 	//if tank is true, slower speed, bigger art/collider, bigger / more powerful projectile
@@ -102,6 +103,7 @@ public class EnemyMoveShoot : MonoBehaviour {
                      //Timer for shooting projectiles
                      if (timeBtwShots <= 0) {
                             isAttacking = true;
+							tankshoot1SFX.Play();
                             //anim.SetTrigger("Attack");
                             Instantiate (projectile, firePoint.position, Quaternion.identity);
                             timeBtwShots = startTimeBtwShots;

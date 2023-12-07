@@ -20,6 +20,7 @@ public class PlayerJump : MonoBehaviour{
 	public bool heyIsGrounded = true;
 	public bool heyIsClimbable = false;
 	public float climbSpeed = 4f;
+	public AudioSource jump1SFX;
 
 	void Start(){
 		anim = gameObject.GetComponentInChildren<Animator>();
@@ -47,6 +48,7 @@ public class PlayerJump : MonoBehaviour{
 
         if ((Input.GetButtonDown("Jump")) && (canJump) && (isAlive == true)) {
             Jump();
+			jump1SFX.Play();
         }
 		
 		//climbable is essentially movement from a top-down game, with vertical enabled:
