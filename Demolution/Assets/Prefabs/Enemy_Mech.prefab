@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 3559633326037325823}
   - component: {fileID: 518615262909834930}
   - component: {fileID: 2156894871843281686}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Enemy_Mech
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthLoot: {fileID: 2203060892451896176, guid: 5bc7ed8e32d1d564aa0c2f36027eabb2, type: 3}
-  maxHealth: 100
+  maxHealth: 250
   currentHealth: 0
   smokeTrailVFX: {fileID: 3487005813693443221, guid: 32bc6e49626a9b044a27a29abdd8ca2c, type: 3}
   isCopter: 0
