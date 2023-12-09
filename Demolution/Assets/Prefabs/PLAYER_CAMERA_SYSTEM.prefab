@@ -966,10 +966,10 @@ MonoBehaviour:
     m_Bits: 8
   entityLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   crushableLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   stomp1SFX: {fileID: 2091466928128674741}
   kick1SFX: {fileID: 5395286668827082407}
   punch1SFX: {fileID: 2530586686590456598}
