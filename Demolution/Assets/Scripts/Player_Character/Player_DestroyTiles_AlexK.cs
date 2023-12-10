@@ -21,6 +21,10 @@ public class DestroyTiles_AlexK : MonoBehaviour{
 	public Transform hitStomp; // press 3
 	public Transform hitPunchUp; // press 4
 
+// use to adjust how many destroyed tiles can score
+	private int destroyedTiles = 0; 
+	private int tilesToScore = 2;
+
 	void Start(){
 		TileMapInit();
 	}
@@ -54,8 +58,9 @@ public class DestroyTiles_AlexK : MonoBehaviour{
 
                      if (destructableTilemap.HasTile(localPlace)){
                             tileWorldLocations.Add(place);
-                            tileWorldGround.Add(place.y == ground + 0.5f);
+                            tileWorldGround.Add(place.y <= ground + 0.5f);
                      }
+					 //Debug.Log("Tile: " + place.x + ", " + place.y + ", " + place.z);
               }
               tileWorldStable = new List<bool>(tileWorldGround);
        }
