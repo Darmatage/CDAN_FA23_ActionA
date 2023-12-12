@@ -10,7 +10,9 @@ public class Player_DestroyTiles : MonoBehaviour{
 	public float rangeDestroy = 2f;
 	public bool canExplode = true;
 	public GameObject boomVFX;
-	//public AudioSource boomSFX;
+	public AudioSource boomSFX1;
+	public AudioSource boomSFX2;
+	public AudioSource boomSFX3;
 
 	private Transform hitPoint;
 	public Transform hitPunch; // press 1
@@ -71,7 +73,13 @@ public class Player_DestroyTiles : MonoBehaviour{
 	}
 
 	IEnumerator BoomVFX(Vector3 tilePos){
-		//boomSFX.Play();
+		AudioSource boomSound;
+		int boomNum = Random.Range(0,3);
+		if (boomNum == 0){boomSound = boomSFX1;}
+		else if (boomNum == 1){boomSound = boomSFX2;}
+		else {boomSound = boomSFX3;}
+		
+		boomSound.Play();
 		GameObject tempVFX = Instantiate(boomVFX, tilePos, Quaternion.identity);
 		yield return new WaitForSeconds(1f);
 		Destroy(tempVFX);

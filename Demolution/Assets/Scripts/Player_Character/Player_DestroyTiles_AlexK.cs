@@ -11,7 +11,9 @@ public class DestroyTiles_AlexK : MonoBehaviour{
 	public float rangeDestroy = 2f;
 	public bool canExplode = true;
 	public GameObject boomVFX;
-	//public AudioSource boomSFX;
+	public AudioSource boomSFX1;
+	public AudioSource boomSFX2;
+	public AudioSource boomSFX3;
 
 	public int ground = 0;
 	
@@ -25,8 +27,12 @@ public class DestroyTiles_AlexK : MonoBehaviour{
 	private int destroyedTiles = 0; 
 	private int tilesToScore = 2;
 
+	private bool bigDestroyShake = true;
+	private CameraShake cameraShake;
+	
 	void Start(){
 		TileMapInit();
+		cameraShake = GameObject.FindWithTag("MainCamera").GetComponent<CameraShake>();
 	}
 
 	void Update(){
@@ -89,8 +95,15 @@ public class DestroyTiles_AlexK : MonoBehaviour{
                      if (!tileWorldStable[i]){
                             destroyTile(i);
                             i--;
+							if (bigDestroyShake==true){
+								//run the camera shake:
+								 cameraShake.ShakeCamera(0.15f, 0.3f);
+								
+								bigDestroyShake = false;
+							}
                      }
               }
+			  bigDestroyShake = true;
        }
 
 	//FUNCTIONS FOR DETERMINING GROUNDED-NESS:
@@ -125,7 +138,13 @@ public class DestroyTiles_AlexK : MonoBehaviour{
 	}
 
 	IEnumerator BoomVFX(Vector3 tilePos){
-		//boomSFX.Play();
+		AudioSource boomSound;
+		int boomNum = Random.Range(0,3);
+		if (boomNum == 0){boomSound = boomSFX1;}
+		else if (boomNum == 1){boomSound = boomSFX2;}
+		else {boomSound = boomSFX3;}
+		
+		boomSound.Play();
 		GameObject tempVFX = Instantiate(boomVFX, tilePos, Quaternion.identity);
 		yield return new WaitForSeconds(1f);
 		Destroy(tempVFX);
