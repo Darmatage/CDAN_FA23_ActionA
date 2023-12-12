@@ -7,7 +7,8 @@ public class PickUp : MonoBehaviour{
 	public GameObject gameHandler;
 	//public playerVFX playerPowerupVFX;
 	public bool isHealthPickUp = true;
-	public bool isSpeedBoostPickUp = false;
+	public int healAmt = 5;
+	//public bool isSpeedBoostPickUp = false;
 
 	/*
 	public int healthBoost = 50;
@@ -27,12 +28,12 @@ public class PickUp : MonoBehaviour{
 			StartCoroutine(DestroyThis());
 			gameHandler.GetComponent<GameHandler_PlayerManager>().playerAddScore(1);
 			
-			/*
+			
                   if (isHealthPickUp == true) {
-                        gameHandler.GetComponent<GameHandler>().playerGetHit(healthBoost * -1);
+                        GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>().playerGetHealth(healAmt);
                         //playerPowerupVFX.powerup();
                   }
-				
+			/*	
                   if (isSpeedBoostPickUp == true) {
                         other.gameObject.GetComponent<PlayerMove>().speedBoost(speedBoost, speedTime);
                         //playerPowerupVFX.powerup();
