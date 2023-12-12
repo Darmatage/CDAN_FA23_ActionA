@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 108
+  m_SortingOrder: 15
   m_Sprite: {fileID: -1820477361, guid: c9fbd0526f8db054f83ca35270308b46, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -154,10 +154,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creature: {fileID: 3455890223914146380}
+  creatureArt: {fileID: 7479069497308178}
   StartPoint: {fileID: 5867967258362047537}
   EndPoint: {fileID: 8016666114311896668}
   spawnDelay: 1
-  creatureSpeed: 0.3
+  creatureSpeed: 4
   faceRight: 1
 --- !u!1 &2885984004275669022
 GameObject:
