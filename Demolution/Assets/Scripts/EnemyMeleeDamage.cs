@@ -24,8 +24,8 @@ public class EnemyMeleeDamage : MonoBehaviour {
 	public void TakeDamage(int damage){
 		currentHealth -= damage;
 		Debug.Log("I got hit" + gameObject.name);
-		//rend.material.color = new Color(2.4f, 0.9f, 0.9f, 1f);
-		//StartCoroutine(ResetColor());
+		rend.material.color = new Color(1.5f, 0.5f, 0.5f, 1f);
+		StartCoroutine(ResetColor());
 		//anim.SetTrigger ("Hurt");
 		if (currentHealth <= 0){
 			Die();

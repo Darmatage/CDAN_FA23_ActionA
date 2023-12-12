@@ -5,8 +5,8 @@ using UnityEngine;
 public class TreeSway : MonoBehaviour{
  
 	private Animator anim;
-	public AudioSource rustleSFX;
-	public AudioSource crushSFX;
+	//public AudioSource rustleSFX;
+	//public AudioSource crushSFX;
 	
 	void Start(){
 		anim = gameObject.GetComponentInChildren<Animator>();

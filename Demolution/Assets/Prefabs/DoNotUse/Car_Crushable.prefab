@@ -137,7 +137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   object_notCrushed: {fileID: 1683072978960223127}
-  object_crushed: {fileID: 4461423916233253229}
+  object_crushed1: {fileID: 4461423916233253229}
+  object_crushed2: {fileID: 4461423916233253229}
+  object_crushed3: {fileID: 4461423916233253229}
   crushableRange: 2
   isCar: 1
 --- !u!1 &1683072978960223127

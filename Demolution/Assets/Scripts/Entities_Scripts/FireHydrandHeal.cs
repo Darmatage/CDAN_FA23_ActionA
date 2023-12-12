@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class FireHydrandHeal : MonoBehaviour
 {
-  public bool dead = false;
-  private Animator anim;
-  public int maxHealth = 80;
+	public bool dead = false;
+	private Animator anim;
+	public int maxHealth = 80;
 	public int currentHealth;
-  private GameHandler ghandler;
+	private GameHandler ghandler;
 
     // Start is called before the first frame update
-    void Start()
-    {
-anim = gameObject.GetComponentInChildren<Animator>();
-currentHealth = maxHealth;
-dead = false;
+    void Start(){
+		anim = gameObject.GetComponentInChildren<Animator>();
+		currentHealth = maxHealth;
+		dead = false;
     }
 
     // Update is called once per frame
