@@ -79,12 +79,13 @@ public class PlayerAttackMelee : MonoBehaviour{
 			Debug.Log("We hit " + enemy.name);
 			enemy.GetComponent<EnemyMeleeDamage>().TakeDamage(attackDamage);
 		}
-
+/*
     foreach(Collider2D entity in hitEntities)
     {
       Debug.Log("We hit " + entity.name);
       entity.GetComponent<FireHydrandHeal>().TakeDamage(attackDamage);
     }
+*/
 		/*
 		foreach(Collider2D crushObject in crushableLayers){
 			Debug.Log("We hit " + crushObject.name);
