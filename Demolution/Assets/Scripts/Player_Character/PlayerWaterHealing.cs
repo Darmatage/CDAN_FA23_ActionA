@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerWaterHealing : MonoBehaviour{
 
-	public int healBonus = 2;
+	private int healBonus = 4;
 	public bool isHealing = false;
 	public float timeToHeal = 1f;
 	private float healTimer = 0f;

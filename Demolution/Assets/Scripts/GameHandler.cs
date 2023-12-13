@@ -108,32 +108,38 @@ public class GameHandler : MonoBehaviour {
             player.GetComponent<PlayerMove>().isAlive = false;
             player.GetComponent<PlayerJump>().isAlive = false;
             yield return new WaitForSeconds(1.0f);
+			BGSoundScript.Instance.SwitchToMenuMusic();
             SceneManager.LoadScene("EndLose");
       }
 
-      public void StartGame() {
-            SceneManager.LoadScene("Level1");
-      }
+	public void StartGame() {
+		//BGSoundScript.Instance.gameObject.GetComponent<AudioSource>().Pause();
+		
+		SceneManager.LoadScene("Level1");
+		BGSoundScript.Instance.SwitchToGameMusic();
+	}
 
-      // Return to MainMenu
-      public void RestartGame() {
-            Time.timeScale = 1f;
-            GameHandler_PauseMenu.GameisPaused = false;
-            SceneManager.LoadScene("MainMenu");
-             // Reset all static variables here, for new games:
-            playerHealth = StartPlayerHealth;
+	// Return to MainMenu
+	public void RestartGame() {
+		// Reset all static variables here, for new games:
+		playerHealth = StartPlayerHealth;
 
-
-            GameHandler_PlayerManager.pointsToLevel1 = 0;
-            GameHandler_PlayerManager.pointsToLevel2 = 10;
-            GameHandler_PlayerManager.playerLevel = 1;
-            GameHandler_PlayerManager.playerSize = 1;
-      }
+		GameHandler_PlayerManager.pointsToLevel1 = 0;
+		GameHandler_PlayerManager.pointsToLevel2 = 10;
+		GameHandler_PlayerManager.playerLevel = 1;
+		GameHandler_PlayerManager.playerSize = 1;
+			
+		Time.timeScale = 1f;
+		GameHandler_PauseMenu.GameisPaused = false;
+		BGSoundScript.Instance.SwitchToMenuMusic();
+		SceneManager.LoadScene("MainMenu");
+	}
 
       // Replay the Level where you died
       public void ReplayLastLevel() {
             Time.timeScale = 1f;
             GameHandler_PauseMenu.GameisPaused = false;
+			BGSoundScript.Instance.SwitchToGameMusic();
             SceneManager.LoadScene(lastLevelDied);
              // Reset all static variables here, for new games:
             playerHealth = StartPlayerHealth;
