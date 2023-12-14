@@ -479,7 +479,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 53
+    m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -501,9 +501,10 @@ MonoBehaviour:
     Challenger
     Thomas Whitham
 
-    Alex K
 
-    Adam Cruz
+    Alex Koppel - Destruction Script
+
+    Adam Cruz - Music
 
 '
 --- !u!222 &637700171
