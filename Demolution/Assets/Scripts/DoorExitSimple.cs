@@ -9,6 +9,9 @@ public class DoorExitSimple : MonoBehaviour{
 
       public void OnTriggerEnter2D(Collider2D other){
             if (other.gameObject.tag == "Player"){
+				if (NextLevel == "EndWin"){
+					BGSoundScript.Instance.SwitchToMenuMusic();
+				}
                   SceneManager.LoadScene (NextLevel);
             }
       }

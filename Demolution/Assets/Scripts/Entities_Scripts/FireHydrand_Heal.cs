@@ -6,14 +6,18 @@ public class FireHydrant_Heal : MonoBehaviour{
 	
 	private Animator anim;
 	public float crushableRange = 2f;
-	private bool isCrushable = false;
+	public bool isCrushable = false;
 	private Transform playerPos;
 	public int crushStage = 0;
 	
 	//public AudioSource crushSFX;
 	//public GameObject crushVFX;
 	
-	public int healAmt = 20;
+	public int healAmt = 1;
+	private bool canHeal = false;
+	private bool isTouchingPlayer = false;
+	private float timerLimit = 1f;
+	private float theTimer = 0;
 	
     void Start(){
 		//crushVFX.SetActive(false);
@@ -34,6 +38,18 @@ public class FireHydrant_Heal : MonoBehaviour{
 		}
 	}
 
+	void FixedUpdate(){
+		if (canHeal){
+			theTimer+= 0.01f;
+			if (theTimer >= timerLimit){
+				theTimer= 0;
+				if (isTouchingPlayer){
+				GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>().playerGetHealth(healAmt);
+				}
+			} 
+		}
+	}
+
     public void CrushMe(){
 		//crushSFX.Play();
 		//crushVFX.SetActive(true);
@@ -51,18 +67,30 @@ public class FireHydrant_Heal : MonoBehaviour{
 			anim.SetBool("isBanged", false);
 			anim.SetBool("isBroken", true);
 			anim.SetBool("isDead", false);
-			GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>().playerGetHealth(healAmt);
+			canHeal = true;
 			StartCoroutine(runOutOfWater());
 		}
     }
 	
+	public void OnTriggerStay2D(Collider2D other){
+		if (other.gameObject.tag=="Player"){
+			isTouchingPlayer = true;
+		} 
+	}
+	
+	public void OnTriggerExit2D(Collider2D other){
+		if (other.gameObject.tag=="Player"){
+			isTouchingPlayer = false;
+		} 
+	}
+	
+	
 	IEnumerator runOutOfWater(){
-		yield return new WaitForSeconds(2f);
-		
+		yield return new WaitForSeconds(10f);
+		canHeal = false;
 		anim.SetBool("isBanged", false);
 		anim.SetBool("isBroken", false);
 		anim.SetBool("isDead", true);
-		
 	}
 	
 	void OnDrawGizmosSelected(){
