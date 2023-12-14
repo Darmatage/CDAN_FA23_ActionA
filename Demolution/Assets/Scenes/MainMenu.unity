@@ -424,7 +424,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -107.99999}
+  m_AnchoredPosition: {x: 0, y: -164.36}
   m_SizeDelta: {x: 700, y: 328.729}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &637700170
@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -448,9 +448,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: a0ffacd09148a2940bff18785bf73b6a, type: 3}
     m_FontSize: 34
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 60
@@ -460,8 +460,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "RAAGH! \nHuman civilization has \ntaken over your islands. \n\nDestroy
-    them! \nAnd stay hydrated.\n"
+  m_Text: "RAAGH! \nHuman civilization has \ntaken over your islands. \nDestroy them!
+    \nAnd stay hydrated.\n"
 --- !u!222 &637700171
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -933,7 +933,7 @@ RectTransform:
   m_GameObject: {fileID: 1376042156}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.78787, y: 0.78787, z: 0.78787}
+  m_LocalScale: {x: 1, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1818186679}
@@ -964,7 +964,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6088a5e11c9da6749a14c1e466edfa03, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7e73b8e3e97c04042a9f2a23313fa85d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
