@@ -10,9 +10,9 @@ public class CameraShake : MonoBehaviour{
 
        //The Update Function is just for testing (hit [p]), and can be commented out:
        void Update(){
-              if (Input.GetKeyDown(KeyCode.P)){
-                     StartCoroutine(ShakeMe(durationTime,magnitude));
-             }
+              //if (Input.GetKeyDown(KeyCode.P)){
+              //       StartCoroutine(ShakeMe(durationTime,magnitude));
+             //}
        }
 
        //use this to call from another script, like when the player gets hit

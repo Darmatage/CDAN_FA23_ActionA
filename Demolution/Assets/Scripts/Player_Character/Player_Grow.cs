@@ -39,11 +39,11 @@ public class Player_Grow : MonoBehaviour{
 
     void Update(){
 		//test buttons (real result should come from melee impact/ points accumulation)
-		if (Input.GetKeyDown("p")){
+		if ((Input.GetKeyDown("p"))&&(Input.GetKeyDown(KeyCode.LeftShift))){
 			//size based on direct input (for testing):
 			StartCoroutine(PlayerGrowers());
 		}
-		if (Input.GetKeyDown("o")){
+		if ((Input.GetKeyDown("o"))&&(Input.GetKeyDown(KeyCode.LeftShift))){
 			//Test size based on points accumulation:
 			GameHandler.playerScore ++;
 			GameObject.FindWithTag("GameHandler").GetComponent<GameHandler_PlayerManager>().playerAddScore(1);
