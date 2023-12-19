@@ -92,10 +92,10 @@ public class GameHandler : MonoBehaviour {
 
       public void updateStatsDisplay(){
             Text healthTextTemp = healthText.GetComponent<Text>();
-            healthTextTemp.text = "HEALTH: " + playerHealth;
+            healthTextTemp.text = "" + playerHealth;
 
             Text tokensTextTemp = tokensText.GetComponent<Text>();
-            tokensTextTemp.text = "SCORE: " + playerScore;
+            tokensTextTemp.text = "" + playerScore;
       }
 
       public void playerDies(){

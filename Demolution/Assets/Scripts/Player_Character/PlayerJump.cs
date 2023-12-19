@@ -57,7 +57,7 @@ public class PlayerJump : MonoBehaviour{
 			Vector3 hvMove = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
 			transform.position = transform.position + hvMove * climbSpeed * Time.deltaTime;
 			if (Input.GetAxis("Vertical") != 0){
-			anim.SetBool ("Climb", true);
+				anim.SetBool ("Climb", true);
 			//     if (!WalkSFX.isPlaying){
 			//           WalkSFX.Play();
 			//     }
@@ -65,7 +65,7 @@ public class PlayerJump : MonoBehaviour{
 			     anim.SetBool ("Climb", false);
 			//     WalkSFX.Stop();
 			}
-		}
+		} else {anim.SetBool ("Climb", false);}
 		
     }
 
