@@ -5738,7 +5738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthLoot: {fileID: 2203060892451896176, guid: 5bc7ed8e32d1d564aa0c2f36027eabb2, type: 3}
-  maxHealth: 60
+  maxHealth: 40
   currentHealth: 0
   smokeTrailVFX: {fileID: 4987677226040206398}
   isCopter: 1
