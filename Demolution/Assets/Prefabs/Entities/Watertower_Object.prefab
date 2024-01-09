@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crushableRange: 5
+  crushStage: 0
+  healAmt: 30
 --- !u!1 &484457426652640255
 GameObject:
   m_ObjectHideFlags: 0

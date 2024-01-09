@@ -5,16 +5,16 @@ using UnityEngine;
 public class CameraFollow_Grow : MonoBehaviour{
 
 	//camera follow variables:
-      public Transform targetTop;
-	  public Transform targetBase;
+	public Transform targetTop;
+	public Transform targetBase;
 	  
-	  //public float camOffsetY = 1f;
-      public float camSpeed = 4.0f;
+	//public float camOffsetY = 1f;
+	public float camSpeed = 4.0f;
 	  
 	//camera scale variables:
 	public static float camSize = 5f;
 	public float camSizeLast;
-	private float newCamSize;
+	public float newCamSize;
 	//float camScaleSpeed = 10f;
 	  
 	void Start(){
@@ -39,6 +39,7 @@ public class CameraFollow_Grow : MonoBehaviour{
 		//get the y-distance between the character head and base positions, and double it
 		newCamSize = (Mathf.Abs(targetTop.position.y) + Mathf.Abs(targetBase.position.y)) * 1.02f; 
 		if (newCamSize < 5){newCamSize = 5;}
+		if (newCamSize > 10){newCamSize = 10;}
 		Debug.Log("camera sizing: targetTop = " + targetTop.position.y 
 					+ ", target bottom = " + targetBase.position.y 
 					+ ", distance x1.02 = " + newCamSize);

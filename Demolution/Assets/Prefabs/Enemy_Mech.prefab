@@ -69,7 +69,7 @@ Transform:
   - {fileID: 9146191799376294377}
   - {fileID: 4432485923035098681}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &4828459544187862683
 Rigidbody2D:
@@ -163,7 +163,7 @@ MonoBehaviour:
   firePoint2: {fileID: 8983855266960375035}
   firePoint3: {fileID: 9146191799376294377}
   firePoint4: {fileID: 4432485923035098681}
-  projectile: {fileID: 7742811440448440183, guid: c8d729ea60ef3ba40b8f5722e37b83a0, type: 3}
+  projectile: {fileID: 6210488375690872488, guid: 870c67cbc2cc50c428ba21e79767271f, type: 3}
   attackRange: 10
   isAttacking: 0
   isTank: 1

@@ -649,6 +649,18 @@ PrefabInstance:
       propertyPath: tokensText
       value: 
       objectReference: {fileID: 1950371899}
+    - target: {fileID: 5183453433243041683, guid: ba7cad8739a6b94419c4772cbc52155f, type: 3}
+      propertyPath: healthAddText
+      value: 
+      objectReference: {fileID: 1950371899}
+    - target: {fileID: 5183453433243041683, guid: ba7cad8739a6b94419c4772cbc52155f, type: 3}
+      propertyPath: islandNumText
+      value: 
+      objectReference: {fileID: 1950371899}
+    - target: {fileID: 5183453433243041683, guid: ba7cad8739a6b94419c4772cbc52155f, type: 3}
+      propertyPath: healthMinusText
+      value: 
+      objectReference: {fileID: 1950371899}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

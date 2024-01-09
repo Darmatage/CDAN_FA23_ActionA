@@ -138,7 +138,7 @@ Transform:
   m_Children:
   - {fileID: 8982408118726482113}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &7971354280944733878
 BoxCollider2D:
@@ -200,4 +200,4 @@ MonoBehaviour:
   crushableRange: 2
   isCrushable: 0
   crushStage: 0
-  healAmt: 2
+  healAmt: 4

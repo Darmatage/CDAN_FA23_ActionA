@@ -5611,7 +5611,7 @@ Transform:
   - {fileID: 6558810422749751901}
   - {fileID: 4673797619384986729}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1309376119423632160
 Rigidbody2D:
@@ -5738,7 +5738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthLoot: {fileID: 2203060892451896176, guid: 5bc7ed8e32d1d564aa0c2f36027eabb2, type: 3}
-  maxHealth: 40
+  maxHealth: 30
   currentHealth: 0
   smokeTrailVFX: {fileID: 4987677226040206398}
   isCopter: 1

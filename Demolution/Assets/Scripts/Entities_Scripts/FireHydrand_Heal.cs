@@ -47,7 +47,7 @@ public class FireHydrant_Heal : MonoBehaviour{
 				GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>().playerGetHealth(healAmt);
 				}
 			} 
-		}
+		} 
 	}
 
     public void CrushMe(){
@@ -86,11 +86,13 @@ public class FireHydrant_Heal : MonoBehaviour{
 	
 	
 	IEnumerator runOutOfWater(){
+		GameHandler_PlayerManager.hydrating = true;
 		yield return new WaitForSeconds(10f);
 		canHeal = false;
 		anim.SetBool("isBanged", false);
 		anim.SetBool("isBroken", false);
 		anim.SetBool("isDead", true);
+		GameHandler_PlayerManager.hydrating = false;
 	}
 	
 	void OnDrawGizmosSelected(){

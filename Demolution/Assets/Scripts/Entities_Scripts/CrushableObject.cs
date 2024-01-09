@@ -13,6 +13,8 @@ public class CrushableObject : MonoBehaviour{
 	private bool isCrushable = false;
 	private Transform playerPos;
 	
+	private bool isDead = false;
+	
 	//public AudioSource crushSFX;
 	//public GameObject crushVFX;
 	
@@ -36,7 +38,7 @@ public class CrushableObject : MonoBehaviour{
 			isCrushable = false;
 		}
 		
-		if ((Input.GetAxis("Attack_Stomp") > 0)&&(isCrushable)){
+		if ((Input.GetAxis("Attack_Stomp") > 0)&&(isCrushable)&&(!isDead)){
 			CrushMe();
 		}
 	}
@@ -44,6 +46,9 @@ public class CrushableObject : MonoBehaviour{
     public void CrushMe(){
 		//crushSFX.Play();
 		//crushVFX.SetActive(true);
+		
+		isDead = true;
+		gameObject.GetComponent<Collider2D>().enabled = false;
 		
 		int crushNum = Random.Range(0,3);
 		if (crushNum ==0){object_crushed1.SetActive(true);}

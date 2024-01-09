@@ -24,6 +24,11 @@ public class PlayerWaterHealing : MonoBehaviour{
 		}
     }
 	
+	public void OnTriggerEnter2D(Collider2D other){
+		if (other.gameObject.tag == "Player"){
+			GameHandler_PlayerManager.hydrating = true;	
+		}
+	}
 	
 	public void OnTriggerStay2D(Collider2D other){
 		if (other.gameObject.tag == "Player"){
@@ -34,9 +39,8 @@ public class PlayerWaterHealing : MonoBehaviour{
 	public void OnTriggerExit2D(Collider2D other){
 		if (other.gameObject.tag == "Player"){
 			isHealing = false;	
+			GameHandler_PlayerManager.hydrating = false;
 		}
 	}
-	
-	
 	
 }

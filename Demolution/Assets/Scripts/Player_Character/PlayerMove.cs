@@ -67,4 +67,9 @@ public class PlayerMove : MonoBehaviour{
 		walkSpeed = walkSpeed * 1.03f;
 	}
 	
+	public void playerHurtAnim(){
+		anim.SetTrigger("getHurt");
+	}
+	
+	
 }

@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba11f24e1c2d5f49bcd644a0938b5c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 3
   speed: 10
   hitEffectAnim: {fileID: 4638626971595538857, guid: aee54339d72869a42ad6a4ee3362b326, type: 3}
   SelfDestructTime: 2

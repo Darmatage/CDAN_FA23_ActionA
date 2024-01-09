@@ -43,9 +43,10 @@ public class Player_Grow : MonoBehaviour{
 			//size based on direct input (for testing):
 			StartCoroutine(PlayerGrowers());
 		}
-		if ((Input.GetKeyDown("o"))&&(Input.GetKeyDown(KeyCode.LeftShift))){
+		//if ((Input.GetKeyDown("o"))&&(Input.GetKeyDown(KeyCode.LeftShift))){
+		if (Input.GetKeyDown("o")){	
 			//Test size based on points accumulation:
-			GameHandler.playerScore ++;
+			GameHandler.playerScore += 10;
 			GameObject.FindWithTag("GameHandler").GetComponent<GameHandler_PlayerManager>().playerAddScore(1);
 		}
 		

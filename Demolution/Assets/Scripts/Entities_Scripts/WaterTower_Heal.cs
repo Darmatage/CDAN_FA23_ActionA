@@ -60,12 +60,12 @@ public class WaterTower_Heal : MonoBehaviour{
     }
 	
 	IEnumerator runOutOfWater(){
+		GameHandler_PlayerManager.hydrating = true;
 		yield return new WaitForSeconds(2f);
-		
 		anim.SetBool("isBanged", false);
 		anim.SetBool("isBroken", false);
 		anim.SetBool("isDead", true);
-		
+		GameHandler_PlayerManager.hydrating = false;
 	}
 	
 	void OnDrawGizmosSelected(){

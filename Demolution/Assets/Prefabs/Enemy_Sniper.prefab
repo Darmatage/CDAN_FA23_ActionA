@@ -240,7 +240,7 @@ MonoBehaviour:
   firePoint: {fileID: 1726707211218630871}
   turretHub: {fileID: 5682601268653194721}
   turretDefault: {fileID: 2102883084386501609}
-  projectile: {fileID: 6210488375690872488, guid: ecb08859f48f3934db0dabd7d19eb1ea, type: 3}
+  projectile: {fileID: 6210488375690872488, guid: adc268df909c8404186060d6ae3d0fff, type: 3}
   player: {fileID: 0}
   attackRange: 10
   isAttacking: 0
