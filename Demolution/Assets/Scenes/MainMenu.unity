@@ -631,6 +631,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7025845965377561559, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1373253885}
+    - target: {fileID: 7025845965377561559, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenAttacksMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025845965377561559, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameHandler_PauseMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7159748165117608624, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -643,6 +655,18 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8890982378272309613, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1373253885}
+    - target: {fileID: 8890982378272309613, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: closeAttacksMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890982378272309613, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameHandler_PauseMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -651,6 +675,11 @@ PrefabInstance:
 --- !u!224 &777918468 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 725523157163347827, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
+  m_PrefabInstance: {fileID: 777918467}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &777918469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2688001885191422236, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
   m_PrefabInstance: {fileID: 777918467}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &794807263 stripped
@@ -1198,6 +1227,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2629316377200005776, guid: ba7cad8739a6b94419c4772cbc52155f, type: 3}
+      propertyPath: attacksMenu
+      value: 
+      objectReference: {fileID: 777918469}
     - target: {fileID: 2629316377200005776, guid: ba7cad8739a6b94419c4772cbc52155f, type: 3}
       propertyPath: pauseMenuUI
       value: 

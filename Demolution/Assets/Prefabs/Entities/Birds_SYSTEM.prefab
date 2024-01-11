@@ -221,7 +221,7 @@ MonoBehaviour:
   StartPoint: {fileID: 2991122591729973834}
   EndPoint: {fileID: 3494374535260324799}
   spawnDelay: 1
-  creatureSpeed: 0.5
+  creatureSpeed: 10
   faceRight: 1
 --- !u!1 &8065791295632162804
 GameObject:

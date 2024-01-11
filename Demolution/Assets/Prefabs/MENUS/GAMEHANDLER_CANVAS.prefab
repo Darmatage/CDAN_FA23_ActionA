@@ -1477,6 +1477,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1435884582034516177}
     m_Modifications:
     - target: {fileID: 2629316377200005776, guid: ba7cad8739a6b94419c4772cbc52155f, type: 3}
+      propertyPath: attacksMenu
+      value: 
+      objectReference: {fileID: 8659567910544920167}
+    - target: {fileID: 2629316377200005776, guid: ba7cad8739a6b94419c4772cbc52155f, type: 3}
       propertyPath: pauseMenuUI
       value: 
       objectReference: {fileID: 288183658338490504}
@@ -1947,6 +1951,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7025845965377561559, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2601189945850948758}
+    - target: {fileID: 7025845965377561559, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenAttacksMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025845965377561559, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameHandler_PauseMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7159748165117608624, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -1958,6 +1974,18 @@ PrefabInstance:
     - target: {fileID: 7159748165117608624, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
       propertyPath: m_AnchorMin.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890982378272309613, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2601189945850948758}
+    - target: {fileID: 8890982378272309613, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: closeAttacksMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890982378272309613, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameHandler_PauseMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1972,5 +2000,10 @@ GameObject:
 --- !u!224 &6300772466310905864 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 725523157163347827, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
+  m_PrefabInstance: {fileID: 6728734477814370171}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8659567910544920167 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2688001885191422236, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
   m_PrefabInstance: {fileID: 6728734477814370171}
   m_PrefabAsset: {fileID: 0}
