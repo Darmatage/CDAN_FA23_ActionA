@@ -15,7 +15,7 @@ public class PlayerAttackMelee : MonoBehaviour{
       public LayerMask entityLayers;
 	  public LayerMask crushableLayers;
 	  private Collider2D[] hitEnemies;
-    private Collider2D[] hitEntities;
+	private Collider2D[] hitEntities;
 	  //private Collider2D[] hitCrushable;
 	  public AudioSource stomp1SFX;
 	  public AudioSource kick1SFX;

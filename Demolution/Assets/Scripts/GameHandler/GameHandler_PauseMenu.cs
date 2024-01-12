@@ -58,7 +58,17 @@ public class GameHandler_PauseMenu : MonoBehaviour {
 		mixer.SetFloat("MusicVolume", Mathf.Log10 (sliderValue) * 20);
 		volumeLevel = sliderValue;
 	}
-		
+	
+	
+	public void PauseButton(){
+		if (GameisPaused){
+			Resume();
+		}
+		else{
+			Pause();
+		}
+	}
+	
 	public void OpenAttacksMenu(){
 		attacksMenu.SetActive(true);
 	}

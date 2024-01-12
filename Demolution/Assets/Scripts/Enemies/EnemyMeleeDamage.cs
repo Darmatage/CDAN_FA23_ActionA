@@ -12,10 +12,13 @@ public class EnemyMeleeDamage : MonoBehaviour {
 	public GameObject smokeTrailVFX;
 
 	public bool isCopter = false;
+	public bool isMech = false;
 
 	void Start(){
 		rend = GetComponentInChildren<Renderer> ();
-		//anim = GetComponentInChildren<Animator> ();
+		if (isMech){
+			anim = GetComponentInChildren<Animator>();
+		}
 		currentHealth = maxHealth;
 			  
 		smokeTrailVFX.SetActive(false);
@@ -40,7 +43,9 @@ public class EnemyMeleeDamage : MonoBehaviour {
 		}
 		GetComponent<Rigidbody2D>().gravityScale = 1;
 		Instantiate (healthLoot, transform.position, Quaternion.identity);
-		//anim.SetBool ("isDead", true);
+		if (isMech){
+			anim.SetBool("broken", true);
+		}
 		smokeTrailVFX.SetActive(true);
 		GetComponent<Collider2D>().enabled = false;
 		GetComponent<Rigidbody2D>().gravityScale = 1;

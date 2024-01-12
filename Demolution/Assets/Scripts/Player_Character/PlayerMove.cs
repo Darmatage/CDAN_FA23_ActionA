@@ -8,7 +8,8 @@ public class PlayerMove : MonoBehaviour{
     private Rigidbody2D rb2D;
     public bool FaceRight = true; // determine which way the player is faceing
     public static float runSpeed = 10f;
-    public float walkSpeed = 3f;
+    public static float walkSpeed = 3.5f;
+	public float walkSpeedDisplay;
 	//public float speed = 3f;
     public bool isAlive = true;
     //public AudioSource WalkSFX
@@ -17,6 +18,7 @@ public class PlayerMove : MonoBehaviour{
     public bool canMove = true;
 
     void Start(){
+		walkSpeedDisplay = walkSpeed;
 		anim = gameObject.GetComponentInChildren<Animator>();
         rb2D = transform.GetComponent<Rigidbody2D>();
     }
@@ -65,6 +67,7 @@ public class PlayerMove : MonoBehaviour{
 	
 	public void walkSpeedGrow(){
 		walkSpeed = walkSpeed * 1.03f;
+		walkSpeedDisplay = walkSpeed;
 	}
 	
 	public void playerHurtAnim(){

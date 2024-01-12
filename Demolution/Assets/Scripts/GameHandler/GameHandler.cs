@@ -151,6 +151,7 @@ public class GameHandler : MonoBehaviour {
 		GameHandler_PlayerManager.pointsToLevel2 = 10;
 		GameHandler_PlayerManager.playerLevel = 1;
 		GameHandler_PlayerManager.playerSize = 1;
+		PlayerMove.walkSpeed = 3.5f;
 			
 		Time.timeScale = 1f;
 		GameHandler_PauseMenu.GameisPaused = false;

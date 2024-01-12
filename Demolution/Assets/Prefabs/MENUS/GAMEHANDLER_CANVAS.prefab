@@ -1801,7 +1801,7 @@ PrefabInstance:
       objectReference: {fileID: 2601189945850948758}
     - target: {fileID: 8705314125889142749, guid: 0a7116cfc2e115346be6eb47ae7ffc01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Pause
+      value: PauseButton
       objectReference: {fileID: 0}
     - target: {fileID: 8705314125889142749, guid: 0a7116cfc2e115346be6eb47ae7ffc01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1862,14 +1862,6 @@ PrefabInstance:
     - target: {fileID: 725523157163347827, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 725523157163347827, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1280
-      objectReference: {fileID: 0}
-    - target: {fileID: 725523157163347827, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 720
       objectReference: {fileID: 0}
     - target: {fileID: 725523157163347827, guid: 9d58dd52edd5e984594b8cfd1ffdca74, type: 3}
       propertyPath: m_LocalPosition.x
